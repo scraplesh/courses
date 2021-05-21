@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    app:startDestination="@id/coursesFragment"
+    >
+
+    <fragment
+        android:id="@+id/coursesFragment"
+        android:name="me.scraplesh.courses.features.courses.list.CoursesFragment"
+        android:label="CoursesFragment"
+        tools:layout="@layout/fragment_courses"
+        >
+        <action
+            android:id="@+id/action_coursesFragment_to_courseFragment"
+            app:destination="@id/courseFragment"
+            />
+        <action
+            android:id="@+id/action_coursesFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/courseFragment"
+        android:name="me.scraplesh.courses.features.course.CourseFragment"
+        android:label="CourseFragment"
+        tools:layout="@layout/fragment_course"
+        >
+        <action
+            android:id="@+id/action_courseFragment_to_timeManagementFragment"
+            app:destination="@id/timeManagementFragment"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/timeManagementFragment"
+        android:name="me.scraplesh.courses.features.timemanagement.TimeManagementFragment"
+        android:label="TimeManagementFragment"
+        />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="me.scraplesh.courses.features.settings.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_settings"
+        >
+        <action
+            android:id="@+id/action_settingsFragment_to_changePasswordActivity"
+            app:destination="@id/changePasswordActivity"
+            />
+        <action
+            android:id="@+id/action_settingsFragment_to_contactsActivity"
+            app:destination="@id/contactsActivity"
+            />
+    </fragment>
+
+    <activity
+        android:id="@+id/changePasswordActivity"
+        android:label="ChangePassword"
+        app:action="android.intent.action.VIEW"
+        app:data="https://example.com/change-password"
+        />
+
+    <activity
+        android:id="@+id/contactsActivity"
+        android:label="Contacts"
+        app:action="android.intent.action.VIEW"
+        app:data="https://example.com/contacts"
+        />
+
+</navigation>

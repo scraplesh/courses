@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding_already_have_account">Уже есть аккаунт? Войти</string>
+    <string name="onboarding_registration">Регистрация</string>
+    <string name="timemanagement_time_management">Тайм-менеджмент</string>
+</resources>

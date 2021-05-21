@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="signup_account_enter">Вход в аккаунт</string>
+    <string name="signup_restore_password">Забыли пароль? Восстановить</string>
+    <string name="signup_enter">Создать аккаунт</string>
+    <string name="signup_password">Пароль</string>
+    <string name="signup_e_mail">E-mail</string>
+    <string name="signup_name">Имя</string>
+</resources>

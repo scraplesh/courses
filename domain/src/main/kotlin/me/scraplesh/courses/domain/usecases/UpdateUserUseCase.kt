@@ -1,0 +1,17 @@
+package me.scraplesh.courses.domain.usecases
+
+import me.scraplesh.courses.domain.repo.UserRepository
+
+class UpdateUserUseCase(private val repo: UserRepository) :
+    BaseUseCase<UpdateUserUseCase.UpdateUserArgs, Unit>() {
+
+    data class UpdateUserArgs(
+        val email: String,
+        val name: String,
+        val lastName: String,
+        val patronymic: String
+    ) : Args
+
+    override suspend fun invoke(args: UpdateUserArgs?) =
+        with(requireNotNull(args)) { repo.updateUser(email, name, lastName, patronymic) }
+}

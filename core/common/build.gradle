@@ -1,0 +1,21 @@
+apply from: "$rootProject.projectDir/feature.gradle"
+apply plugin: "kotlin-kapt"
+apply plugin: "kotlin-android-extensions"
+
+android {
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlinx'
+    }
+}
+
+// FAQ(Tomilov): It's for @Parcelize annotation.
+androidExtensions {
+    experimental = true
+}
+
+dependencies {
+    implementation(project(":domain"))
+    implementation(Deps.androidxConstraintLayout)
+    implementation(Deps.androidxFragmentKtx)
+    implementation(Deps.material)
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feed_pay_attention">Обратите внимание</string>
+    <string name="feed_auth_user_message">Все купленные билеты на концерты, театр и в кино вы сможете найти в разделе \"Мои события\". Билеты вы также получите по e-mail</string>
+    <string name="feed_non_auth_user_message">Для того, чтобы сохранять билеты на мероприятия и иметь доступ к эксклюзивным возможностям, необходимо авторизоваться</string>
+    <string name="feed_understand">Понятно</string>
+    <string name="feed_authorize">Авторизоваться</string>
+</resources>

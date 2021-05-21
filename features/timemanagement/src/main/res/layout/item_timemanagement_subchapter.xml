@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatTextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/textview_itemsubchapter"
+    android:layout_width="match_parent"
+    android:layout_height="36dp"
+    android:drawablePadding="@dimen/spacing_medium"
+    android:gravity="center_vertical"
+    android:textColor="@color/main"
+    android:textSize="16sp"
+    app:drawableStartCompat="@drawable/ic_tick_in_circle"
+    tools:text="Глава 1. Аудит времени"
+    tools:showIn="@layout/fragment_timemanagement"
+    />

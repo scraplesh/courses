@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/start"
+    app:startDestination="@id/onboardingFragment"
+    >
+
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="me.scraplesh.courses.features.onboarding.OnboardingFragment"
+        android:label="OnboardingFragment"
+        tools:layout="@layout/fragment_onboarding"
+        >
+        <action
+            android:id="@+id/action_onboardingFragment_to_signInFragment"
+            app:destination="@id/signInFragment"
+            />
+        <action
+            android:id="@+id/action_onboardingFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="me.scraplesh.courses.features.signin.SignInFragment"
+        android:label="SignInFragment"
+        tools:layout="@layout/fragment_settings"
+        >
+        <action
+            android:id="@+id/action_signInFragment_to_main"
+            app:destination="@id/main"
+            />
+        <action
+            android:id="@+id/action_signInFragment_to_browserActivity"
+            app:destination="@id/restorePasswordActivity"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="me.scraplesh.courses.features.signup.SignUpFragment"
+        android:label="SignUpFragment"
+        tools:layout="@layout/fragment_signup"
+        >
+        <action
+            android:id="@+id/action_signUpFragment_to_main"
+            app:destination="@id/main"
+            />
+    </fragment>
+
+    <activity
+        android:id="@+id/restorePasswordActivity"
+        android:label="RestorePassword"
+        app:action="android.intent.action.VIEW"
+        app:data="https://example.com/restore-password"
+        />
+
+
+    <include app:graph="@navigation/main" />
+
+</navigation>

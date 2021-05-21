@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageButton
+        android:id="@+id/imagebutton_timemanagement_close"
+        android:layout_width="?android:actionBarSize"
+        android:layout_height="?android:actionBarSize"
+        android:background="@null"
+        android:src="@drawable/ic_cross"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/textview_timemanagement_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/timemanagement_time_management"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/guideline_timemanagement_begin"
+        app:layout_constraintTop_toBottomOf="@id/imagebutton_timemanagement_close"
+        />
+
+    <ProgressBar
+        android:id="@+id/progressbar_onboarding_first"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/size_4"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:indeterminate="false"
+        app:layout_constraintEnd_toEndOf="@id/guideline_timemanagement_end"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="@id/guideline_timemanagement_begin"
+        app:layout_constraintTop_toBottomOf="@id/textview_timemanagement_title"
+        tools:progress="50"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_timemanagement"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/spacing_medium"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progressbar_onboarding_first"
+        tools:listitem="@layout/item_timemanagement_chapter"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_timemanagement_begin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/spacing_medium"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_timemanagement_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/spacing_medium"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

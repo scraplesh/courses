@@ -1,0 +1,17 @@
+apply from: "$rootProject.projectDir/feature.gradle"
+
+android {
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlinx'
+    }
+}
+
+dependencies {
+    implementation(project(":core:common"))
+    implementation(Deps.androidxAppCompat)
+    implementation(Deps.androidxLifecycleCommon)
+    implementation(Deps.androidxLifecycleLiveDataKtx)
+    implementation(Deps.androidxLifecycleViewModelKtx)
+    implementation(Deps.coroutinesAndroid)
+    implementation(Deps.coroutinesCore)
+}
