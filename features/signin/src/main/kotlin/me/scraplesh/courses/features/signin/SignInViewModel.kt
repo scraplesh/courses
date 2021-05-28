@@ -1,5 +1,6 @@
 package me.scraplesh.courses.features.signin
 
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -11,8 +12,10 @@ import me.scraplesh.courses.features.signin.SignInViewModel.Intention
 import me.scraplesh.courses.features.signin.SignInViewModel.State
 import me.scraplesh.courses.mvi.Actor
 import me.scraplesh.courses.mvi.ActorReducerViewModel
+import javax.inject.Inject
 
-class SignInViewModel(signInUseCase: SignInUseCase) :
+@HiltViewModel
+class SignInViewModel @Inject constructor(signInUseCase: SignInUseCase) :
     ActorReducerViewModel<Intention, Effect, State, Event>(
         initialState = State.Content(email = "", password = ""),
         actor = SignInActor(signInUseCase = signInUseCase),

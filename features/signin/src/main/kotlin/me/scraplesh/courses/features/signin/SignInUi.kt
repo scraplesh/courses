@@ -14,15 +14,17 @@ import me.scraplesh.courses.features.signin.databinding.FragmentSigninBinding
 import me.scraplesh.courses.mvi.Ui
 import ru.ldralighieri.corbind.view.clicks
 import ru.ldralighieri.corbind.widget.textChanges
+import javax.inject.Inject
 
-class SignInUi : Ui<SignInUi.Reaction, SignInUi.UiState, FragmentSigninBinding>() {
-    sealed class Reaction {
-        object SignInClicked : Reaction()
-        object RetryClicked : Reaction()
-        object RestoreAccountClicked : Reaction()
-        object BackClicked : Reaction()
-        class EmailChanged(val email: String) : Reaction()
-        class PasswordChanged(val password: String) : Reaction()
+class SignInUi @Inject constructor() :
+    Ui<SignInUi.Reaction, SignInUi.UiState, FragmentSigninBinding>() {
+    sealed interface Reaction {
+        object SignInClicked : Reaction
+        object RetryClicked : Reaction
+        object RestoreAccountClicked : Reaction
+        object BackClicked : Reaction
+        class EmailChanged(val email: String) : Reaction
+        class PasswordChanged(val password: String) : Reaction
     }
 
     sealed interface UiState {

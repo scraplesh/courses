@@ -1,4 +1,4 @@
-package me.scraplesh.courses.di
+package me.scraplesh.courses.features.onboarding
 
 import dagger.Binds
 import dagger.Module

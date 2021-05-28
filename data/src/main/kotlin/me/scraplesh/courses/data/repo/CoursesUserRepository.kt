@@ -1,8 +1,9 @@
 package me.scraplesh.courses.data.repo
 
 import me.scraplesh.courses.domain.repo.UserRepository
+import javax.inject.Inject
 
-class CoursesUserRepository : UserRepository {
+class CoursesUserRepository @Inject constructor() : UserRepository {
     override suspend fun signIn(email: String, password: String) {
         TODO("Not yet implemented")
     }

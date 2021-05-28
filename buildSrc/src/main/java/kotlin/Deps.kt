@@ -6,7 +6,6 @@ object Deps {
     const val googleServicesPlugin = "com.google.gms:google-services:${Versions.googleServicesPlugin}"
     const val hiltAndroidPlugin = "com.google.dagger:hilt-android-gradle-plugin:${Versions.dagger}"
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlinGradlePlugin}"
-    const val safeArgsPlugin = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.androidxNavigation}"
     // endregion
 
     // region Languages
@@ -38,6 +37,8 @@ object Deps {
     const val androidxSwipeRefreshLayout = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.androidxSwipeRefreshLayout}"
     const val androidxViewPager2 = "androidx.viewpager2:viewpager2:${Versions.androidxViewPager2}"
     const val androidxWorkManagerKtx = "androidx.work:work-runtime-ktx:${Versions.androidxWorkManager}"
+    const val dagger = "com.google.dagger:dagger:${Versions.dagger}"
+    const val daggerCompiler = "com.google.dagger:dagger-compiler:${Versions.dagger}"
     const val firebaseAnalyticsKtx = "com.google.firebase:firebase-analytics-ktx"
     const val firebaseBom = "com.google.firebase:firebase-bom:${Versions.firebaseBom}"
     const val firebaseMessagingKtx = "com.google.firebase:firebase-messaging-ktx"

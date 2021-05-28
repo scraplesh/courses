@@ -1,4 +1,7 @@
-apply from: "$rootProject.projectDir/feature.gradle"
+plugins {
+    id("com.android.library")
+    id("kotlin-android")
+}
 
 dependencies {
     implementation(project(":core:common"))
@@ -6,10 +9,9 @@ dependencies {
     implementation(project(":domain"))
     implementation(Deps.androidxConstraintLayout)
     implementation(Deps.androidxCoreKtx)
-    implementation(Deps.androidxFragment)
-    implementation(Deps.androidxLifecycleCommon)
+    implementation(Deps.androidxFragmentKtx)
     implementation(Deps.androidxLifecycleLiveDataKtx)
-    implementation(Deps.androidxLifecycleRuntimeKtx)
-    implementation(Deps.androidxLifecycleViewModelKtx)
     implementation(Deps.corbind)
+    implementation(Deps.corbindAppCompat)
+    implementation(Deps.material)
 }

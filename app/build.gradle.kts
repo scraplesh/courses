@@ -2,7 +2,6 @@ plugins {
     id("com.android.application")
     kotlin("android")
     id("kotlin-kapt")
-    id("androidx.navigation.safeargs.kotlin")
     id("dagger.hilt.android.plugin")
 }
 
@@ -12,7 +11,7 @@ android {
     defaultConfig {
         applicationId = AndroidConfig.applicationId
         minSdkVersion(AndroidConfig.minSdkVersion)
-        targetSdkVersion(AndroidConfig.targetSdkVersion)
+        targetSdkVersion(AndroidConfig.minSdkVersion)
         versionCode = AndroidConfig.versionCode
         versionName = AndroidConfig.versionName
 

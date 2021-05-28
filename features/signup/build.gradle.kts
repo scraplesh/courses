@@ -1,4 +1,7 @@
-apply from: "$rootProject.projectDir/feature.gradle"
+plugins {
+    id("com.android.library")
+    id("kotlin-android")
+}
 
 dependencies {
     implementation(project(":core:common"))

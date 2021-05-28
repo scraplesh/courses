@@ -1,17 +1,18 @@
-apply from: "$rootProject.projectDir/feature.gradle"
-apply plugin: 'kotlin-kapt'
+plugins {
+    id("com.android.library")
+    id("kotlin-android")
+}
 
 dependencies {
     implementation(project(":core:common"))
     implementation(project(":core:mvi"))
     implementation(project(":domain"))
-    implementation(Deps.adapterDelegatesKotlinDslViewBinding)
-    implementation(Deps.androidxFragmentKtx)
     implementation(Deps.androidxConstraintLayout)
     implementation(Deps.androidxCoreKtx)
+    implementation(Deps.androidxFragment)
     implementation(Deps.androidxLifecycleCommon)
     implementation(Deps.androidxLifecycleLiveDataKtx)
-    implementation(Deps.androidxRecyclerView)
+    implementation(Deps.androidxLifecycleRuntimeKtx)
+    implementation(Deps.androidxLifecycleViewModelKtx)
     implementation(Deps.corbind)
-    implementation(Deps.material)
 }

@@ -1,9 +1,6 @@
-apply from: "$rootProject.projectDir/feature.gradle"
-
-android {
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlinx'
-    }
+plugins {
+    id("com.android.library")
+    id("kotlin-android")
 }
 
 dependencies {
