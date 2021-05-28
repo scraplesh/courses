@@ -1,5 +1,6 @@
 package me.scraplesh.courses.features.signup
 
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -11,8 +12,10 @@ import me.scraplesh.courses.features.signup.SignUpViewModel.Intention
 import me.scraplesh.courses.features.signup.SignUpViewModel.State
 import me.scraplesh.courses.mvi.Actor
 import me.scraplesh.courses.mvi.ActorReducerViewModel
+import javax.inject.Inject
 
-class SignUpViewModel(signUpUseCase: SignUpUseCase) :
+@HiltViewModel
+class SignUpViewModel @Inject constructor(signUpUseCase: SignUpUseCase) :
     ActorReducerViewModel<Intention, Effect, State, Event>(
         initialState = State.Content(email = "", password = "", name = ""),
         actor = SignUpActor(signUpUseCase = signUpUseCase),
@@ -52,7 +55,7 @@ class SignUpViewModel(signUpUseCase: SignUpUseCase) :
         eventEmitter = { action, effect, _ ->
             when {
                 action == Intention.NavigateBack -> Event.NavigatedBack
-                effect is Effect.SingUpCompleted -> Event.SingInCompleted
+                effect is Effect.SingUpCompleted -> Event.SingedUp
                 else -> null
             }
         }
@@ -83,7 +86,7 @@ class SignUpViewModel(signUpUseCase: SignUpUseCase) :
         class ErrorHided(val email: String, val password: String, val name: String) : Effect
     }
 
-    enum class Event { NavigatedBack, SingInCompleted, }
+    enum class Event { NavigatedBack, SingedUp, }
 
     class SignUpActor(private val signUpUseCase: SignUpUseCase) : Actor<Intention, State, Effect> {
         override fun invoke(intention: Intention, state: State): Flow<Effect> = when (intention) {

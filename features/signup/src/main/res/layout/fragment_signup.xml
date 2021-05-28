@@ -43,6 +43,7 @@
             android:layout_height="64dp"
             android:layout_marginTop="40dp"
             android:hint="@string/signup_name"
+            android:inputType="textPersonName"
             app:layout_constraintBottom_toTopOf="@id/edittext_signup_password"
             app:layout_constraintEnd_toEndOf="@id/guide_signup_end"
             app:layout_constraintStart_toStartOf="@id/guide_signup_start"
@@ -50,11 +51,12 @@
             />
 
         <EditText
-            android:id="@+id/edittext_signup_signup"
+            android:id="@+id/edittext_signup_email"
             android:layout_width="0dp"
             android:layout_height="64dp"
             android:layout_marginTop="40dp"
             android:hint="@string/signup_e_mail"
+            android:inputType="textEmailAddress"
             app:layout_constraintBottom_toTopOf="@id/edittext_signup_password"
             app:layout_constraintEnd_toEndOf="@id/guide_signup_end"
             app:layout_constraintStart_toStartOf="@id/guide_signup_start"
@@ -67,10 +69,11 @@
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
             android:hint="@string/signup_password"
+            android:inputType="textPassword"
             app:layout_constraintBottom_toTopOf="@id/button_signup_signup"
             app:layout_constraintEnd_toEndOf="@id/guide_signup_end"
             app:layout_constraintStart_toStartOf="@id/guide_signup_start"
-            app:layout_constraintTop_toBottomOf="@id/edittext_signup_signup"
+            app:layout_constraintTop_toBottomOf="@id/edittext_signup_email"
             />
 
         <Button
@@ -79,24 +82,22 @@
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
             android:text="@string/signup_enter"
-            app:layout_constraintBottom_toTopOf="@id/textview_signup_restore"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/guide_signup_end"
             app:layout_constraintStart_toStartOf="@id/guide_signup_start"
             app:layout_constraintTop_toBottomOf="@id/edittext_signup_password"
             />
 
-        <TextView
-            android:id="@+id/textview_signup_restore"
-            android:layout_width="0dp"
+        <ProgressBar
+            android:id="@+id/progressbar_signup"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:gravity="center"
-            android:textSize="18sp"
-            android:text="@string/signup_restore_password"
+            android:indeterminate="true"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/guide_signup_end"
-            app:layout_constraintStart_toStartOf="@id/guide_signup_start"
-            app:layout_constraintTop_toBottomOf="@id/button_signup_signup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             />
 
         <androidx.constraintlayout.widget.Guideline

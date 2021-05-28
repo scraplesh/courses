@@ -1,10 +1,10 @@
 package me.scraplesh.courses.navigation
 
 import androidx.navigation.NavController
-import androidx.navigation.NavDirections
 import me.scraplesh.courses.R
 import me.scraplesh.courses.navigation.CoursesNavEvent.OnboardingNavEvent
 import me.scraplesh.courses.navigation.CoursesNavEvent.SignInNavEvent
+import me.scraplesh.courses.navigation.CoursesNavEvent.SignUpNavEvent
 import javax.inject.Inject
 
 class RootCoordinator @Inject constructor(
@@ -28,6 +28,10 @@ class RootCoordinator @Inject constructor(
             SignInNavEvent.SignedIn -> navController.navigate(R.id.action_signInFragment_to_main)
             SignInNavEvent.ShowPasswordRecovery -> {
                 navController.navigate(R.id.action_signInFragment_to_browserActivity)
+            }
+            SignUpNavEvent.NavigatedBack -> navController.navigateUp()
+            SignUpNavEvent.SignedUp -> {
+                navController.navigate(R.id.action_signUpFragment_to_main)
             }
         }
     }

@@ -12,7 +12,6 @@ dependencies {
     implementation(Deps.androidxConstraintLayout)
     implementation(Deps.androidxCoreKtx)
     implementation(Deps.androidxFragmentKtx)
-    implementation(Deps.androidxLifecycleLiveDataKtx)
     implementation(Deps.corbind)
     implementation(Deps.hiltAndroid)
     kapt(Deps.hiltCompiler)

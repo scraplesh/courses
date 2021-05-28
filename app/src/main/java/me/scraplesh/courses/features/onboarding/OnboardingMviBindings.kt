@@ -15,13 +15,13 @@ class OnboardingMviBindings @Inject constructor(
         bind(view to viewModel using { reaction ->
             when (reaction) {
                 Reaction.SignInClicked -> Intention.ShowLogin
-                Reaction.SignUpClicked -> TODO()
+                Reaction.SignUpClicked -> Intention.ShowRegistration
             }
         })
         bind(viewModel.events to coordinator using { event ->
             when (event) {
                 Event.SignInRequested -> OnboardingNavEvent.ShowSignIn
-                Event.SignUpRequested -> TODO()
+                Event.SignUpRequested -> OnboardingNavEvent.ShowSignUp
             }
         })
     }
