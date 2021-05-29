@@ -5,6 +5,7 @@ import me.scraplesh.courses.R
 import me.scraplesh.courses.navigation.CoursesNavEvent.OnboardingNavEvent
 import me.scraplesh.courses.navigation.CoursesNavEvent.SignInNavEvent
 import me.scraplesh.courses.navigation.CoursesNavEvent.SignUpNavEvent
+import me.scraplesh.courses.navigation.CoursesNavEvent.CoursesHostNavEvent
 import javax.inject.Inject
 
 class RootCoordinator @Inject constructor(
@@ -32,6 +33,10 @@ class RootCoordinator @Inject constructor(
             SignUpNavEvent.NavigatedBack -> navController.navigateUp()
             SignUpNavEvent.SignedUp -> {
                 navController.navigate(R.id.action_signUpFragment_to_main)
+            }
+            CoursesHostNavEvent.NavigatedBack -> navController.navigateUp()
+            CoursesHostNavEvent.ShowSettings -> {
+                navController.navigate(R.id.action_coursesHostFragment_to_settingsFragment)
             }
         }
     }

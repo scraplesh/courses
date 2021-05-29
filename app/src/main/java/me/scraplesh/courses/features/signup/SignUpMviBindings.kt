@@ -5,7 +5,7 @@ import me.scraplesh.courses.features.signup.SignUpViewModel.Event
 import me.scraplesh.courses.features.signup.SignUpViewModel.Intention
 import me.scraplesh.courses.mvi.MviBindings
 import me.scraplesh.courses.navigation.Coordinator
-import me.scraplesh.courses.navigation.CoursesNavEvent.SignInNavEvent
+import me.scraplesh.courses.navigation.CoursesNavEvent.SignUpNavEvent
 import javax.inject.Inject
 
 class SignUpMviBindings @Inject constructor(
@@ -23,8 +23,8 @@ class SignUpMviBindings @Inject constructor(
         })
         bind(viewModel.events to coordinator using { event ->
             when (event) {
-                Event.NavigatedBack -> SignInNavEvent.NavigatedBack
-                Event.SingedUp -> SignInNavEvent.SignedIn
+                Event.NavigatedBack -> SignUpNavEvent.NavigatedBack
+                Event.SingedUp -> SignUpNavEvent.SignedUp
             }
         })
     }

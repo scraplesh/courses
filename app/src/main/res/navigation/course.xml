@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/course"
+    app:startDestination="@id/courseFragment"
+    >
+
+    <fragment
+        android:id="@+id/coursesFragment"
+        android:name="me.scraplesh.courses.features.courses.list.CoursesFragment"
+        android:label="CoursesFragment"
+        tools:layout="@layout/fragment_courses"
+        >
+        <action
+            android:id="@+id/action_coursesFragment_to_courseFragment"
+            app:destination="@id/courseFragment"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/courseFragment"
+        android:name="me.scraplesh.courses.features.course.CourseFragment"
+        android:label="CourseFragment"
+        tools:layout="@layout/fragment_course"
+        >
+        <action
+            android:id="@+id/action_courseFragment_to_timeManagementFragment"
+            app:destination="@id/timeManagementFragment"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/timeManagementFragment"
+        android:name="me.scraplesh.courses.features.timemanagement.TimeManagementFragment"
+        android:label="TimeManagementFragment"
+        tools:layout="@layout/fragment_timemanagement"
+        />
+
+</navigation>

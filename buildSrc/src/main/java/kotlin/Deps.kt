@@ -61,6 +61,7 @@ object Deps {
     const val corbindSwipeRefresh = "ru.ldralighieri.corbind:corbind-swiperefreshlayout:${Versions.corbind}"
     const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
     const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
+    const val javaInject = "javax.inject:javax.inject:${Versions.javaInject}"
     const val okhttpLogging = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
     // endregion
 

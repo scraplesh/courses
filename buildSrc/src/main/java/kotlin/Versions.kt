@@ -43,6 +43,7 @@ object Versions {
     const val adapterDelegates = "4.3.0"
     const val corbind = "1.4.0"
     const val glide = "4.11.0"
+    const val javaInject = "1"
     const val okhttp = "4.9.0"
     // endregion
 
