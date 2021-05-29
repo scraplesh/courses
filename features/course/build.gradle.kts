@@ -1,6 +1,8 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 dependencies {
@@ -10,8 +12,12 @@ dependencies {
     implementation(Deps.androidxConstraintLayout)
     implementation(Deps.androidxCoreKtx)
     implementation(Deps.androidxFragmentKtx)
-    implementation(Deps.androidxLifecycleLiveDataKtx)
     implementation(Deps.corbind)
     implementation(Deps.corbindAppCompat)
+    implementation(Deps.corbindMaterial)
+    implementation(Deps.hiltAndroid)
+    kapt(Deps.hiltCompiler)
+    implementation(Deps.hiltViewModel)
+    kapt(Deps.hiltAndroidCompiler)
     implementation(Deps.material)
 }

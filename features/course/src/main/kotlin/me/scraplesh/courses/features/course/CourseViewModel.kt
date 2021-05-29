@@ -1,5 +1,9 @@
 package me.scraplesh.courses.features.course
 
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedInject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
@@ -34,7 +38,7 @@ class CourseViewModel(
     eventEmitter = { action, _, _ ->
         when (action) {
             Intention.NavigateBack -> Event.NavigatedBack
-            Intention.ShowTimeManagement -> Event.TimeManagementRequested
+            Intention.ShowTimeManagement -> Event.TimeManagementRequested(course)
             else -> null
         }
     },
@@ -68,9 +72,9 @@ class CourseViewModel(
         object NetworkNotAvailable : Effect
     }
 
-    enum class Event {
-        NavigatedBack,
-        TimeManagementRequested,
+    sealed interface Event {
+        object NavigatedBack : Event
+        class TimeManagementRequested(val course: Course) : Event
     }
 
     class CourseActor(
@@ -97,5 +101,23 @@ class CourseViewModel(
         private fun stopLoading(): Flow<Effect> = flowOf(Effect.LoadingStopped)
 
         private fun noEffect(): Flow<Effect> = flowOf(Effect.NoEffect)
+    }
+
+    class Factory @AssistedInject constructor(
+        @Assisted private val course: Course,
+        private val checkNetworkAvailabilityUseCase: CheckNetworkAvailabilityUseCase
+    ) : ViewModelProvider.Factory {
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            return modelClass.getConstructor(
+                Course::class.java,
+                CheckNetworkAvailabilityUseCase::class.java
+            )
+                .newInstance(course, checkNetworkAvailabilityUseCase)
+        }
+    }
+
+    @dagger.assisted.AssistedFactory
+    interface AssistedFactory {
+        fun create(course: Course): Factory
     }
 }

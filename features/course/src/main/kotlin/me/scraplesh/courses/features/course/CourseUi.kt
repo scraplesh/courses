@@ -15,9 +15,10 @@ import me.scraplesh.courses.mvi.Ui
 import ru.ldralighieri.corbind.appcompat.itemClicks
 import ru.ldralighieri.corbind.appcompat.navigationClicks
 import ru.ldralighieri.corbind.view.clicks
+import javax.inject.Inject
 
 @SuppressLint("SetJavaScriptEnabled")
-class CourseUi : Ui<CourseUi.Reaction, CourseUi.UiState, FragmentCourseBinding>() {
+class CourseUi @Inject constructor() : Ui<CourseUi.Reaction, CourseUi.UiState, FragmentCourseBinding>() {
     enum class Reaction {
         BackClicked,
         PageStoppedLoading,
@@ -77,15 +78,6 @@ class CourseUi : Ui<CourseUi.Reaction, CourseUi.UiState, FragmentCourseBinding>(
     }
     private var refreshButton: View by didSet {
         clicks().react { Reaction.RefreshClicked }
-    }
-
-    fun onBackPress(): Boolean {
-        return webView.takeIf { it.copyBackForwardList().currentIndex > 0 }
-            ?.let {
-                it.goBack()
-                true
-            }
-            ?: false
     }
 
     override fun bindViews(view: FragmentCourseBinding) {
