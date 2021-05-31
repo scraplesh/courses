@@ -21,7 +21,7 @@ class CoursesHostFragment : Fragment(R.layout.fragment_courses_host) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ui = factory.create(childFragmentManager, viewLifecycleOwner.lifecycle)
+        ui = factory.create(childFragmentManager, lifecycle)
         mviBindings.setup(lifecycleScope, ui, Unit)
     }
 
