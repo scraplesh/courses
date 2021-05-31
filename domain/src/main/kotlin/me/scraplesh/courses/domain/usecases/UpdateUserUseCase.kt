@@ -1,8 +1,9 @@
 package me.scraplesh.courses.domain.usecases
 
 import me.scraplesh.courses.domain.repo.UserRepository
+import javax.inject.Inject
 
-class UpdateUserUseCase(private val repo: UserRepository) :
+class UpdateUserUseCase @Inject constructor(private val repo: UserRepository) :
     BaseUseCase<UpdateUserUseCase.UpdateUserArgs, Unit>() {
 
     data class UpdateUserArgs(

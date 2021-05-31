@@ -13,7 +13,7 @@
         >
 
         <Button
-            android:id="@+id/button_signin_back"
+            android:id="@+id/button_settings_back"
             android:layout_width="@dimen/toolbar_height"
             android:layout_height="@dimen/toolbar_height"
             android:background="@null"
@@ -23,72 +23,108 @@
             />
 
         <TextView
-            android:id="@+id/textview_signin_title"
+            android:id="@+id/textview_settings_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
-            android:text="@string/signin_account_enter"
+            android:text="@string/settings_title"
             android:textColor="@android:color/black"
             android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@id/edittext_signin_signin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toBottomOf="@id/button_settings_back"
             />
 
         <EditText
-            android:id="@+id/edittext_signin_signin"
+            android:id="@+id/edittext_settings_email"
             android:layout_width="0dp"
             android:layout_height="64dp"
-            android:layout_marginTop="40dp"
-            android:hint="@string/signin_e_mail"
-            app:layout_constraintBottom_toTopOf="@id/edittext_signin_password"
-            app:layout_constraintEnd_toEndOf="@id/guide_signin_end"
-            app:layout_constraintStart_toStartOf="@id/guide_signin_start"
-            app:layout_constraintTop_toBottomOf="@id/textview_signin_title"
-            />
-
-        <EditText
-            android:id="@+id/edittext_signin_password"
-            android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:layout_marginTop="16dp"
-            android:hint="@string/signin_password"
-            app:layout_constraintBottom_toTopOf="@id/button_signin_signin"
-            app:layout_constraintEnd_toEndOf="@id/guide_signin_end"
-            app:layout_constraintStart_toStartOf="@id/guide_signin_start"
-            app:layout_constraintTop_toBottomOf="@id/edittext_signin_signin"
+            android:hint="@string/settings_e_mail"
+            app:layout_constraintEnd_toEndOf="@id/guide_settings_end"
+            app:layout_constraintStart_toStartOf="@id/guide_settings_start"
+            app:layout_constraintTop_toBottomOf="@id/textview_settings_title"
             />
 
         <Button
-            android:id="@+id/button_signin_signin"
+            android:id="@+id/button_settings_change_password"
             android:layout_width="0dp"
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
-            android:text="@string/signin_enter"
-            app:layout_constraintBottom_toTopOf="@id/textview_signin_restore"
-            app:layout_constraintEnd_toEndOf="@id/guide_signin_end"
-            app:layout_constraintStart_toStartOf="@id/guide_signin_start"
-            app:layout_constraintTop_toBottomOf="@id/edittext_signin_password"
+            android:text="@string/settings_change_password"
+            app:layout_constraintEnd_toEndOf="@id/guide_settings_end"
+            app:layout_constraintStart_toStartOf="@id/guide_settings_start"
+            app:layout_constraintTop_toBottomOf="@id/edittext_settings_email"
+            />
+
+        <EditText
+            android:id="@+id/edittext_settings_name"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="16dp"
+            android:hint="@string/settings_name"
+            app:layout_constraintEnd_toEndOf="@id/guide_settings_end"
+            app:layout_constraintStart_toStartOf="@id/guide_settings_start"
+            app:layout_constraintTop_toBottomOf="@id/button_settings_change_password"
+            />
+
+        <EditText
+            android:id="@+id/edittext_settings_last_name"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="16dp"
+            android:hint="@string/settings_last_name"
+            app:layout_constraintEnd_toEndOf="@id/guide_settings_end"
+            app:layout_constraintStart_toStartOf="@id/guide_settings_start"
+            app:layout_constraintTop_toBottomOf="@id/edittext_settings_name"
+            />
+
+        <EditText
+            android:id="@+id/edittext_settings_patronymic"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="16dp"
+            android:hint="@string/settings_last_name"
+            app:layout_constraintEnd_toEndOf="@id/guide_settings_end"
+            app:layout_constraintStart_toStartOf="@id/guide_settings_start"
+            app:layout_constraintTop_toBottomOf="@id/edittext_settings_last_name"
+            />
+
+        <Button
+            android:id="@+id/button_settings_save"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/settings_save"
+            app:layout_constraintEnd_toEndOf="@id/guide_settings_end"
+            app:layout_constraintStart_toStartOf="@id/guide_settings_start"
+            app:layout_constraintTop_toBottomOf="@id/edittext_settings_patronymic"
+            />
+
+        <Button
+            android:id="@+id/button_settings_sign_out"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/settings_sign_out"
+            app:layout_constraintEnd_toEndOf="@id/guide_settings_end"
+            app:layout_constraintStart_toStartOf="@id/guide_settings_start"
+            app:layout_constraintTop_toBottomOf="@id/button_settings_save"
             />
 
         <TextView
-            android:id="@+id/textview_signin_restore"
+            android:id="@+id/textview_settings_contacts"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
             android:gravity="center"
+            android:text="@string/settings_contacts"
             android:textSize="18sp"
-            android:text="@string/signin_restore_password"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/guide_signin_end"
-            app:layout_constraintStart_toStartOf="@id/guide_signin_start"
-            app:layout_constraintTop_toBottomOf="@id/button_signin_signin"
+            app:layout_constraintEnd_toEndOf="@id/guide_settings_end"
+            app:layout_constraintStart_toStartOf="@id/guide_settings_start"
+            app:layout_constraintTop_toBottomOf="@id/button_settings_sign_out"
             />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guide_signin_start"
+            android:id="@+id/guide_settings_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -96,7 +132,7 @@
             />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guide_signin_end"
+            android:id="@+id/guide_settings_end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"

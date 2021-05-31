@@ -1,6 +1,7 @@
 package me.scraplesh.courses.navigation
 
 import androidx.navigation.NavController
+import me.scraplesh.courses.R
 import me.scraplesh.courses.common.model.CourseDto
 import me.scraplesh.courses.features.course.CourseFragmentDirections
 import me.scraplesh.courses.features.courses.CoursesHostFragmentDirections
@@ -10,8 +11,10 @@ import me.scraplesh.courses.features.signup.SignUpFragmentDirections
 import me.scraplesh.courses.navigation.CoursesNavEvent.CourseNavEvent
 import me.scraplesh.courses.navigation.CoursesNavEvent.CoursesHostNavEvent
 import me.scraplesh.courses.navigation.CoursesNavEvent.OnboardingNavEvent
+import me.scraplesh.courses.navigation.CoursesNavEvent.SettingsNavEvent
 import me.scraplesh.courses.navigation.CoursesNavEvent.SignInNavEvent
 import me.scraplesh.courses.navigation.CoursesNavEvent.SignUpNavEvent
+import me.scraplesh.courses.navigation.CoursesNavEvent.TimeManagementNavEvent
 import javax.inject.Inject
 
 class RootCoordinator @Inject constructor(
@@ -62,6 +65,9 @@ class RootCoordinator @Inject constructor(
                     )
                 )
             }
+            TimeManagementNavEvent.Close -> navController.navigateUp()
+            SettingsNavEvent.NavigateBack -> navController.navigateUp()
+            SettingsNavEvent.SignedOut -> navController.navigate(R.id.start)
         }
     }
 }

@@ -12,4 +12,5 @@ sealed interface CoursesNavEvent : NavEvent {
         class ShowTimeManagement(val course: Course) : CoursesNavEvent
     }
     enum class TimeManagementNavEvent : CoursesNavEvent { Close }
+    enum class SettingsNavEvent : CoursesNavEvent { NavigateBack, SignedOut }
 }

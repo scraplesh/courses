@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="signin_account_enter">Вход в аккаунт</string>
-    <string name="signin_restore_password">Забыли пароль? Восстановить</string>
-    <string name="signin_enter">Войти</string>
-    <string name="signin_password">Пароль</string>
-    <string name="signin_e_mail">E-mail</string>
+    <string name="settings_title">Настройки аккаунта</string>
+    <string name="settings_e_mail">E-mail</string>
+    <string name="settings_change_password">Изменить пароль</string>
+    <string name="settings_contacts">Контакты</string>
+    <string name="settings_last_name">Фамилия</string>
+    <string name="settings_save">Сохранить</string>
+    <string name="settings_sign_out">Выйти</string>
+    <string name="settings_name">Имя</string>
 </resources>

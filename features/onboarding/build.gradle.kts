@@ -21,5 +21,4 @@ dependencies {
     kapt(Deps.hiltCompiler)
     implementation(Deps.hiltViewModel)
     kapt(Deps.hiltAndroidCompiler)
-    implementation(Deps.kotlinStdLib)
 }

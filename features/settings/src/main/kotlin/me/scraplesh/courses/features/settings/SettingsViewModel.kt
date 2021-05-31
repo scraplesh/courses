@@ -1,9 +1,14 @@
 package me.scraplesh.courses.features.settings
 
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedInject
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
+import me.scraplesh.courses.domain.model.Course
 import me.scraplesh.courses.domain.model.UserInfo
 import me.scraplesh.courses.domain.usecases.SignOutUseCase
 import me.scraplesh.courses.domain.usecases.UpdateUserUseCase
@@ -85,7 +90,6 @@ class SettingsViewModel(
             val lastName: String,
             val patronymic: String
         ) : State
-
         object Error : State
     }
 
@@ -183,5 +187,25 @@ class SettingsViewModel(
         private companion object {
             const val DELAY_ERROR = 3000L
         }
+    }
+
+    class Factory @AssistedInject constructor(
+        @Assisted private val course: Course,
+        private val updateUserUseCase: UpdateUserUseCase,
+        private val signOutUseCase: SignOutUseCase
+    ) : ViewModelProvider.Factory {
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            return modelClass.getConstructor(
+                UserInfo::class.java,
+                UpdateUserUseCase::class.java,
+                SignOutUseCase::class.java
+            )
+                .newInstance(course, updateUserUseCase, signOutUseCase)
+        }
+    }
+
+    @dagger.assisted.AssistedFactory
+    interface AssistedFactory {
+        fun create(course: Course): Factory
     }
 }
