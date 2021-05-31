@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 dependencies {
@@ -14,5 +15,8 @@ dependencies {
     implementation(Deps.androidxLifecycleLiveDataKtx)
     implementation(Deps.androidxRecyclerView)
     implementation(Deps.corbind)
-    implementation(Deps.kotlinStdLib)
+    implementation(Deps.hiltAndroid)
+    kapt(Deps.hiltCompiler)
+    implementation(Deps.hiltViewModel)
+    kapt(Deps.hiltAndroidCompiler)
 }

@@ -7,21 +7,13 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import me.scraplesh.courses.common.argumentNotNull
 import me.scraplesh.courses.common.model.CourseDto
-import me.scraplesh.courses.domain.model.Course
 import me.scraplesh.courses.features.course.databinding.FragmentCourseBinding
 import me.scraplesh.courses.mvi.MviBindings
 import javax.inject.Inject
 
 class CourseFragment : Fragment(R.layout.fragment_course) {
-
-    companion object {
-        fun newInstance(course: Course) = CourseFragment().apply {
-            this.course = CourseDto(course)
-        }
-    }
-
-    private var viewBinding: FragmentCourseBinding? = null
     private val viewModel: CourseViewModel by viewModels { factory.create(course) }
+    private var viewBinding: FragmentCourseBinding? = null
     private var course: CourseDto by argumentNotNull()
     @Inject lateinit var ui: CourseUi
     @Inject lateinit var mviBindings: MviBindings<CourseUi, CourseViewModel>

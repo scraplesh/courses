@@ -2,10 +2,9 @@ package me.scraplesh.courses.features.timemanagement
 
 import android.view.View
 import android.widget.ProgressBar
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
-import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
+import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
@@ -39,8 +38,7 @@ class TimeManagementUi : Ui<
         clicks().react { Reaction.CloseClicked }
     }
     private var chaptersList: RecyclerView by didSet {
-        adapter = AsyncListDifferDelegationAdapter(
-            ItemCallback(),
+        adapter = ListDelegationAdapter(
             createChapterDelegate(),
             createSubchapterDelegate()
         )
@@ -78,8 +76,9 @@ class TimeManagementUi : Ui<
                             },
                             0,
                             when (item.state) {
-                                ItemState.Collapsed -> R.drawable.ic_tick_down
-                                ItemState.Expanded -> R.drawable.ic_tick_up
+                                ChapterCollapseState.Collapsed -> R.drawable.ic_tick_down
+                                ChapterCollapseState.Expanded -> R.drawable.ic_tick_up
+                                ChapterCollapseState.None -> 0
                             },
                             0
                         )
@@ -125,29 +124,8 @@ class TimeManagementUi : Ui<
         }
     }
 
-    class ItemCallback : DiffUtil.ItemCallback<Item>() {
-        override fun areItemsTheSame(oldItem: Item, newItem: Item): Boolean =
-            (oldItem is Item.ChapterItem && newItem is Item.ChapterItem) ||
-                    (oldItem is Item.SubchapterItem && newItem is Item.SubchapterItem)
-
-        override fun areContentsTheSame(oldItem: Item, newItem: Item): Boolean = when {
-            oldItem is Item.ChapterItem && newItem is Item.ChapterItem -> {
-                oldItem.state == newItem.state
-            }
-            oldItem is Item.SubchapterItem && newItem is Item.SubchapterItem -> true
-            else -> false
-        }
-    }
-
-    enum class ItemState { Collapsed, Expanded }
-
-    sealed interface Item {
-        class ChapterItem(
-            val chapter: Chapter,
-            val state: ItemState,
-            val isCollapsed: Boolean
-        ) : Item
-
-        class SubchapterItem(val chapter: Chapter, val state: ItemState) : Item
+    sealed class Item(val chapter: Chapter) {
+        class ChapterItem(chapter: Chapter, val state: ChapterCollapseState) : Item(chapter)
+        class SubchapterItem(chapter: Chapter) : Item(chapter)
     }
 }

@@ -12,6 +12,7 @@ buildscript {
         classpath(Deps.androidGradlePlugin)
         classpath(Deps.kotlinGradlePlugin)
         classpath(Deps.hiltAndroidPlugin)
+        classpath(Deps.safeArgsPlugin)
     }
 }
 allprojects {

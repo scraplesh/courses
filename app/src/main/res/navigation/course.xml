@@ -24,6 +24,10 @@
         android:label="CourseFragment"
         tools:layout="@layout/fragment_course"
         >
+        <argument
+            android:name="course"
+            app:argType="me.scraplesh.courses.common.model.CourseDto"
+            />
         <action
             android:id="@+id/action_courseFragment_to_timeManagementFragment"
             app:destination="@id/timeManagementFragment"
@@ -35,6 +39,11 @@
         android:name="me.scraplesh.courses.features.timemanagement.TimeManagementFragment"
         android:label="TimeManagementFragment"
         tools:layout="@layout/fragment_timemanagement"
-        />
+        >
+        <argument
+            android:name="course"
+            app:argType="me.scraplesh.courses.common.model.CourseDto"
+            />
+    </fragment>
 
 </navigation>

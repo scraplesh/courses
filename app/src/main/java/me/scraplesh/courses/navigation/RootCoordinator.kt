@@ -1,11 +1,17 @@
 package me.scraplesh.courses.navigation
 
 import androidx.navigation.NavController
-import me.scraplesh.courses.R
+import me.scraplesh.courses.common.model.CourseDto
+import me.scraplesh.courses.features.course.CourseFragmentDirections
+import me.scraplesh.courses.features.courses.CoursesHostFragmentDirections
+import me.scraplesh.courses.features.onboarding.OnboardingFragmentDirections
+import me.scraplesh.courses.features.signin.SignInFragmentDirections
+import me.scraplesh.courses.features.signup.SignUpFragmentDirections
+import me.scraplesh.courses.navigation.CoursesNavEvent.CourseNavEvent
+import me.scraplesh.courses.navigation.CoursesNavEvent.CoursesHostNavEvent
 import me.scraplesh.courses.navigation.CoursesNavEvent.OnboardingNavEvent
 import me.scraplesh.courses.navigation.CoursesNavEvent.SignInNavEvent
 import me.scraplesh.courses.navigation.CoursesNavEvent.SignUpNavEvent
-import me.scraplesh.courses.navigation.CoursesNavEvent.CoursesHostNavEvent
 import javax.inject.Inject
 
 class RootCoordinator @Inject constructor(
@@ -20,23 +26,41 @@ class RootCoordinator @Inject constructor(
     private fun onNavEvent(event: CoursesNavEvent) {
         when (event) {
             OnboardingNavEvent.ShowSignIn -> {
-                navController.navigate(R.id.action_onboardingFragment_to_signInFragment)
+                navController.navigate(
+                    OnboardingFragmentDirections.actionOnboardingFragmentToSignInFragment()
+                )
             }
             OnboardingNavEvent.ShowSignUp -> {
-                navController.navigate(R.id.action_onboardingFragment_to_signUpFragment)
+                navController.navigate(
+                    OnboardingFragmentDirections.actionOnboardingFragmentToSignUpFragment()
+                )
             }
             SignInNavEvent.NavigatedBack -> navController.navigateUp()
-            SignInNavEvent.SignedIn -> navController.navigate(R.id.action_signInFragment_to_main)
+            SignInNavEvent.SignedIn -> {
+                navController.navigate(SignInFragmentDirections.actionSignInFragmentToMain())
+            }
             SignInNavEvent.ShowPasswordRecovery -> {
-                navController.navigate(R.id.action_signInFragment_to_browserActivity)
+                navController.navigate(
+                    SignInFragmentDirections.actionSignInFragmentToBrowserActivity()
+                )
             }
             SignUpNavEvent.NavigatedBack -> navController.navigateUp()
             SignUpNavEvent.SignedUp -> {
-                navController.navigate(R.id.action_signUpFragment_to_main)
+                navController.navigate(SignUpFragmentDirections.actionSignUpFragmentToMain())
             }
             CoursesHostNavEvent.NavigatedBack -> navController.navigateUp()
             CoursesHostNavEvent.ShowSettings -> {
-                navController.navigate(R.id.action_coursesHostFragment_to_settingsFragment)
+                navController.navigate(
+                    CoursesHostFragmentDirections.actionCoursesHostFragmentToSettingsFragment()
+                )
+            }
+            CourseNavEvent.NavigatedBack -> navController.navigateUp()
+            is CourseNavEvent.ShowTimeManagement -> {
+                navController.navigate(
+                    CourseFragmentDirections.actionCourseFragmentToTimeManagementFragment(
+                        CourseDto(event.course)
+                    )
+                )
             }
         }
     }

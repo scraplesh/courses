@@ -6,6 +6,7 @@ object Deps {
     const val googleServicesPlugin = "com.google.gms:google-services:${Versions.googleServicesPlugin}"
     const val hiltAndroidPlugin = "com.google.dagger:hilt-android-gradle-plugin:${Versions.dagger}"
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlinGradlePlugin}"
+    const val safeArgsPlugin = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.androidxNavigation}"
     // endregion
 
     // region Languages

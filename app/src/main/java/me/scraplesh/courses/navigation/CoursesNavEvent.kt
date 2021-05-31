@@ -11,4 +11,5 @@ sealed interface CoursesNavEvent : NavEvent {
         object NavigatedBack : CoursesNavEvent
         class ShowTimeManagement(val course: Course) : CoursesNavEvent
     }
+    enum class TimeManagementNavEvent : CoursesNavEvent { Close }
 }
