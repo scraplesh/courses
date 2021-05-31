@@ -5,7 +5,7 @@ import me.scraplesh.courses.features.signup.SignUpViewModel.Event
 import me.scraplesh.courses.features.signup.SignUpViewModel.Intention
 import me.scraplesh.courses.mvi.MviBindings
 import me.scraplesh.courses.navigation.Coordinator
-import me.scraplesh.courses.navigation.CoursesNavEvent.SignUpNavEvent
+import me.scraplesh.courses.navigation.AppNavEvent.SignUpNavEvent
 import javax.inject.Inject
 
 class SignUpMviBindings @Inject constructor(

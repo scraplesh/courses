@@ -1,8 +1,6 @@
 package me.scraplesh.courses.features.courses.list
 
 import android.view.View
-import androidx.lifecycle.DefaultLifecycleObserver
-import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
@@ -14,13 +12,13 @@ import me.scraplesh.courses.domain.model.Course
 import me.scraplesh.courses.features.courses.databinding.FragmentCoursesBinding
 import me.scraplesh.courses.features.courses.databinding.ItemCourseBinding
 import me.scraplesh.courses.mvi.Ui
+import javax.inject.Inject
 
-class CoursesUi :
-    Ui<CoursesUi.Interaction, CoursesUi.UiState, FragmentCoursesBinding>(),
-    DefaultLifecycleObserver {
+class CoursesUi @Inject constructor() :
+    Ui<CoursesUi.Reaction, CoursesUi.UiState, FragmentCoursesBinding>() {
 
-    sealed class Interaction {
-        class CourseClicked(val course: Course) : Interaction()
+    sealed class Reaction {
+        class CourseClicked(val course: Course) : Reaction()
     }
 
     sealed class UiState {
@@ -55,14 +53,11 @@ class CoursesUi :
         }
     }
 
-    override fun onResume(owner: LifecycleOwner) {
-        // TODO("Trigger loading")
-    }
-
     private fun createCourseDelegate(): AdapterDelegate<List<Item>> {
         return adapterDelegateViewBinding(
             { inflater, parent -> ItemCourseBinding.inflate(inflater, parent, false) }
         ) {
+            binding.root.setOnClickListener { react(Reaction.CourseClicked(item.course)) }
             bind {
             }
         }
@@ -71,8 +66,8 @@ class CoursesUi :
     class ItemCallback : DiffUtil.ItemCallback<Item>() {
         override fun areItemsTheSame(oldItem: Item, newItem: Item): Boolean = true
         override fun areContentsTheSame(oldItem: Item, newItem: Item): Boolean =
-            oldItem.id == newItem.id
+            oldItem.course.id == newItem.course.id
     }
 
-    class Item(val id: Int)
+    class Item(val course: Course)
 }

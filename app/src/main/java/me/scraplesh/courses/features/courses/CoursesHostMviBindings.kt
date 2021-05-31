@@ -3,7 +3,7 @@ package me.scraplesh.courses.features.courses
 import me.scraplesh.courses.features.courses.CoursesHostUi.Reaction
 import me.scraplesh.courses.mvi.MviBindings
 import me.scraplesh.courses.navigation.Coordinator
-import me.scraplesh.courses.navigation.CoursesNavEvent.CoursesHostNavEvent
+import me.scraplesh.courses.navigation.AppNavEvent.CoursesHostNavEvent
 import javax.inject.Inject
 
 class CoursesHostMviBindings @Inject constructor(

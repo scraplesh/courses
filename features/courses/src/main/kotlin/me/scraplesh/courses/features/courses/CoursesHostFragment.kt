@@ -15,11 +15,13 @@ class CoursesHostFragment : Fragment(R.layout.fragment_courses_host) {
         defaultOnBackPressedCallback(requireActivity()) { ui.onBackPress() }
     }
     private var viewBinding: FragmentCoursesHostBinding? = null
-    @Inject lateinit var ui: CoursesHostUi
+    @Inject lateinit var factory: CoursesHostUi.AssistedFactory
     @Inject lateinit var mviBindings: MviBindings<CoursesHostUi, Unit>
+    private lateinit var ui: CoursesHostUi
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        ui = factory.create(childFragmentManager, viewLifecycleOwner.lifecycle)
         mviBindings.setup(lifecycleScope, ui, Unit)
     }
 

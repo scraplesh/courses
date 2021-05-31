@@ -5,12 +5,14 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import dagger.hilt.android.AndroidEntryPoint
 import me.scraplesh.courses.common.argumentNotNull
 import me.scraplesh.courses.common.model.CourseDto
 import me.scraplesh.courses.features.course.databinding.FragmentCourseBinding
 import me.scraplesh.courses.mvi.MviBindings
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class CourseFragment : Fragment(R.layout.fragment_course) {
     private val viewModel: CourseViewModel by viewModels { factory.create(course) }
     private var viewBinding: FragmentCourseBinding? = null

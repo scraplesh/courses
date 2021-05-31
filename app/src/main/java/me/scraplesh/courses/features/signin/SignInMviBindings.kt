@@ -3,7 +3,7 @@ package me.scraplesh.courses.features.signin
 import me.scraplesh.courses.features.signin.SignInUi.Reaction
 import me.scraplesh.courses.features.signin.SignInViewModel.Intention
 import me.scraplesh.courses.features.signin.SignInViewModel.Event
-import me.scraplesh.courses.navigation.CoursesNavEvent.SignInNavEvent
+import me.scraplesh.courses.navigation.AppNavEvent.SignInNavEvent
 import me.scraplesh.courses.mvi.MviBindings
 import me.scraplesh.courses.navigation.Coordinator
 import javax.inject.Inject

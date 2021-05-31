@@ -8,13 +8,13 @@ import me.scraplesh.courses.features.courses.CoursesHostFragmentDirections
 import me.scraplesh.courses.features.onboarding.OnboardingFragmentDirections
 import me.scraplesh.courses.features.signin.SignInFragmentDirections
 import me.scraplesh.courses.features.signup.SignUpFragmentDirections
-import me.scraplesh.courses.navigation.CoursesNavEvent.CourseNavEvent
-import me.scraplesh.courses.navigation.CoursesNavEvent.CoursesHostNavEvent
-import me.scraplesh.courses.navigation.CoursesNavEvent.OnboardingNavEvent
-import me.scraplesh.courses.navigation.CoursesNavEvent.SettingsNavEvent
-import me.scraplesh.courses.navigation.CoursesNavEvent.SignInNavEvent
-import me.scraplesh.courses.navigation.CoursesNavEvent.SignUpNavEvent
-import me.scraplesh.courses.navigation.CoursesNavEvent.TimeManagementNavEvent
+import me.scraplesh.courses.navigation.AppNavEvent.CourseNavEvent
+import me.scraplesh.courses.navigation.AppNavEvent.CoursesHostNavEvent
+import me.scraplesh.courses.navigation.AppNavEvent.OnboardingNavEvent
+import me.scraplesh.courses.navigation.AppNavEvent.SettingsNavEvent
+import me.scraplesh.courses.navigation.AppNavEvent.SignInNavEvent
+import me.scraplesh.courses.navigation.AppNavEvent.SignUpNavEvent
+import me.scraplesh.courses.navigation.AppNavEvent.TimeManagementNavEvent
 import javax.inject.Inject
 
 class RootCoordinator @Inject constructor(
@@ -22,11 +22,11 @@ class RootCoordinator @Inject constructor(
 ) : Coordinator {
     override suspend fun emit(value: NavEvent) {
         when (value) {
-            is CoursesNavEvent -> onNavEvent(value)
+            is AppNavEvent -> onNavEvent(value)
         }
     }
 
-    private fun onNavEvent(event: CoursesNavEvent) {
+    private fun onNavEvent(event: AppNavEvent) {
         when (event) {
             OnboardingNavEvent.ShowSignIn -> {
                 navController.navigate(

@@ -6,7 +6,7 @@ import me.scraplesh.courses.features.timemanagement.TimeManagementViewModel.Even
 import me.scraplesh.courses.features.timemanagement.TimeManagementViewModel.Intention
 import me.scraplesh.courses.mvi.MviBindings
 import me.scraplesh.courses.navigation.Coordinator
-import me.scraplesh.courses.navigation.CoursesNavEvent.TimeManagementNavEvent
+import me.scraplesh.courses.navigation.AppNavEvent.TimeManagementNavEvent
 import javax.inject.Inject
 
 class TimeManagementMviBindings @Inject constructor(

@@ -1,19 +1,22 @@
 package me.scraplesh.courses.features.courses.list
 
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import me.scraplesh.courses.domain.model.Course
 import me.scraplesh.courses.domain.usecases.GetCoursesUseCase
-import me.scraplesh.courses.features.courses.list.CoursesFeature.Effect
-import me.scraplesh.courses.features.courses.list.CoursesFeature.Intention
-import me.scraplesh.courses.features.courses.list.CoursesFeature.News
-import me.scraplesh.courses.features.courses.list.CoursesFeature.State
+import me.scraplesh.courses.features.courses.list.CoursesViewModel.Effect
+import me.scraplesh.courses.features.courses.list.CoursesViewModel.Intention
+import me.scraplesh.courses.features.courses.list.CoursesViewModel.Event
+import me.scraplesh.courses.features.courses.list.CoursesViewModel.State
 import me.scraplesh.courses.mvi.Actor
 import me.scraplesh.courses.mvi.ActorReducerViewModel
+import javax.inject.Inject
 
-class CoursesFeature(getCoursesInteractor: GetCoursesUseCase) :
-    ActorReducerViewModel<Intention, Effect, State, News>(
+@HiltViewModel
+class CoursesViewModel @Inject constructor(getCoursesInteractor: GetCoursesUseCase) :
+    ActorReducerViewModel<Intention, Effect, State, Event>(
         State.Loading,
         actor = CoursesActor(getCoursesInteractor = getCoursesInteractor),
         reducer = { state, effect ->
@@ -27,7 +30,7 @@ class CoursesFeature(getCoursesInteractor: GetCoursesUseCase) :
         },
         eventEmitter = { wish, _, _ ->
             when (wish) {
-                is Intention.ShowCourse -> News.ShowCourse(wish.course)
+                is Intention.ShowCourse -> Event.ShowCourse(wish.course)
                 else -> null
             }
         }
@@ -52,8 +55,8 @@ class CoursesFeature(getCoursesInteractor: GetCoursesUseCase) :
         object Empty : State()
     }
 
-    sealed class News {
-        class ShowCourse(val course: Course) : News()
+    sealed class Event {
+        class ShowCourse(val course: Course) : Event()
     }
 
     private class CoursesActor(private val getCoursesInteractor: GetCoursesUseCase) :

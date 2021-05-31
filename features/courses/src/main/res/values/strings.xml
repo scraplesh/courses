@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="courses_courses">Курсы</string>
+    <string name="courses_reviews">Отзывы</string>
+    <string name="courses_about">О программе</string>
+</resources>

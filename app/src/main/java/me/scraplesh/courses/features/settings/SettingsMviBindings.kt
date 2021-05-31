@@ -7,7 +7,7 @@ import me.scraplesh.courses.features.settings.SettingsViewModel.Intention
 import me.scraplesh.courses.features.settings.SettingsViewModel.State
 import me.scraplesh.courses.mvi.MviBindings
 import me.scraplesh.courses.navigation.Coordinator
-import me.scraplesh.courses.navigation.CoursesNavEvent.SettingsNavEvent
+import me.scraplesh.courses.navigation.AppNavEvent.SettingsNavEvent
 import javax.inject.Inject
 
 class SettingsMviBindings @Inject constructor(
