@@ -74,6 +74,7 @@ dependencies {
     implementation(project(":core:common"))
     implementation(project(":core:navigation"))
     implementation(project(":core:mvi"))
+    implementation(project(":core:mvi-android"))
     implementation(project(":data"))
     implementation(project(":domain"))
     implementation(project(":features:course"))

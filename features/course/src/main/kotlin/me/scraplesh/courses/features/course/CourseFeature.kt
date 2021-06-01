@@ -3,8 +3,8 @@ package me.scraplesh.courses.features.course
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.map
 import me.scraplesh.courses.domain.model.Course
 import me.scraplesh.courses.domain.usecases.CheckNetworkAvailabilityUseCase
 import me.scraplesh.courses.features.course.CourseFeature.Effect
@@ -88,11 +88,9 @@ class CourseFeature @AssistedInject constructor(
         }
 
         private fun checkNetworkAvailability(): Flow<Effect> {
-            return flow {
-                emit(
-                    if (checkNetworkAvailabilityUseCase()) Effect.NetworkAvailable
-                    else Effect.NetworkNotAvailable
-                )
+            return checkNetworkAvailabilityUseCase().map { isNetworkAvailable ->
+                if (isNetworkAvailable) Effect.NetworkAvailable
+                else Effect.NetworkNotAvailable
             }
         }
 

@@ -1,7 +1,7 @@
 package me.scraplesh.courses.features.courses.list
 
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
@@ -15,10 +15,10 @@ import me.scraplesh.courses.mvi.Actor
 import me.scraplesh.courses.mvi.ActorReducerFeature
 import javax.inject.Inject
 
-class CoursesFeature @Inject constructor(getCoursesInteractor: GetCoursesUseCase) :
+class CoursesFeature @Inject constructor(getCoursesUseCase: GetCoursesUseCase) :
     ActorReducerFeature<Intention, Effect, State, Event>(
         State.Loading,
-        actor = CoursesActor(getCoursesInteractor = getCoursesInteractor),
+        actor = CoursesActor(getCoursesUseCase = getCoursesUseCase),
         reducer = { state, effect ->
             when (effect) {
                 is Effect.CoursesLoaded -> State.Content(effect.courses)
@@ -75,19 +75,7 @@ class CoursesFeature @Inject constructor(getCoursesInteractor: GetCoursesUseCase
                 else Effect.NoCoursesLoaded
             }
                 .onStart { emit(Effect.StartedLoading) }
-            return flow {
-                try {
-                    emit(Effect.StartedLoading)
-                    val courses = getCoursesUseCase()
-                    emit(
-                        if (courses.isNotEmpty()) Effect.CoursesLoaded(courses)
-                        else Effect.NoCoursesLoaded
-                    )
-                } catch (e: Throwable) {
-                    emit(Effect.ErrorLoading)
-                }
-            }
+                .catch { emit(Effect.ErrorLoading) }
         }
-
     }
 }

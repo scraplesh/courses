@@ -161,8 +161,8 @@ class SettingsFeature @Inject constructor(
                 updateUserUseCase(
                     UpdateUserUseCase.UpdateUserArgs(email, name, lastName, patronymic)
                 )
-                    .onStart { Effect.LoadingStarted }
                     .map<Unit, Effect> { Effect.UpdateUserCompleted(state) }
+                    .onStart { emit(Effect.LoadingStarted) }
                     .catch {
                         emit(Effect.UpdateUserFailed)
                         delay(DELAY_ERROR)

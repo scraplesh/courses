@@ -8,7 +8,7 @@ class SignInUseCase @Inject constructor(private val repo: UserRepository) :
 
     data class SignInArgs(val email: String, val password: String) : Args
 
-    override suspend fun invoke(args: SignInArgs?) {
+    override suspend fun single(args: SignInArgs?) {
         with(requireNotNull(args)) { repo.signIn(email, password) }
     }
 
