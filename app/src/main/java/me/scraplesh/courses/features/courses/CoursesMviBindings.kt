@@ -3,8 +3,8 @@ package me.scraplesh.courses.features.courses
 import me.scraplesh.courses.features.courses.list.CoursesUi
 import me.scraplesh.courses.features.courses.list.CoursesUi.Reaction
 import me.scraplesh.courses.features.courses.list.CoursesViewModel
-import me.scraplesh.courses.features.courses.list.CoursesViewModel.Event
-import me.scraplesh.courses.features.courses.list.CoursesViewModel.Intention
+import me.scraplesh.courses.features.courses.list.CoursesFeature.Event
+import me.scraplesh.courses.features.courses.list.CoursesFeature.Intention
 import me.scraplesh.courses.mvi.MviBindings
 import me.scraplesh.courses.navigation.AppNavEvent.CoursesNavEvent
 import me.scraplesh.courses.navigation.Coordinator

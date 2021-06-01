@@ -5,11 +5,13 @@ import me.scraplesh.courses.R
 import me.scraplesh.courses.common.model.CourseDto
 import me.scraplesh.courses.features.course.CourseFragmentDirections
 import me.scraplesh.courses.features.courses.CoursesHostFragmentDirections
+import me.scraplesh.courses.features.courses.list.CoursesFragmentDirections
 import me.scraplesh.courses.features.onboarding.OnboardingFragmentDirections
 import me.scraplesh.courses.features.signin.SignInFragmentDirections
 import me.scraplesh.courses.features.signup.SignUpFragmentDirections
 import me.scraplesh.courses.navigation.AppNavEvent.CourseNavEvent
 import me.scraplesh.courses.navigation.AppNavEvent.CoursesHostNavEvent
+import me.scraplesh.courses.navigation.AppNavEvent.CoursesNavEvent
 import me.scraplesh.courses.navigation.AppNavEvent.OnboardingNavEvent
 import me.scraplesh.courses.navigation.AppNavEvent.SettingsNavEvent
 import me.scraplesh.courses.navigation.AppNavEvent.SignInNavEvent
@@ -68,6 +70,11 @@ class RootCoordinator @Inject constructor(
             TimeManagementNavEvent.Close -> navController.navigateUp()
             SettingsNavEvent.NavigateBack -> navController.navigateUp()
             SettingsNavEvent.SignedOut -> navController.navigate(R.id.start)
+            is CoursesNavEvent.ShowCourse -> {
+                CoursesFragmentDirections.actionCoursesFragmentToCourseFragment(
+                    CourseDto(event.course)
+                )
+            }
         }
     }
 }

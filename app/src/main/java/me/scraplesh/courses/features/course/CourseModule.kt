@@ -14,5 +14,5 @@ abstract class CourseModule {
     @FragmentScoped
     abstract fun bindSignInBindings(
         bindings: CourseMviBindings
-    ): MviBindings<CourseUi, CourseFeature>
+    ): MviBindings<CourseUi, CourseViewModel>
 }

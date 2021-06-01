@@ -1,8 +1,8 @@
 package me.scraplesh.courses.features.signup
 
 import me.scraplesh.courses.features.signup.SignUpUi.Reaction
-import me.scraplesh.courses.features.signup.SignUpViewModel.Event
-import me.scraplesh.courses.features.signup.SignUpViewModel.Intention
+import me.scraplesh.courses.features.signup.SignUpFeature.Event
+import me.scraplesh.courses.features.signup.SignUpFeature.Intention
 import me.scraplesh.courses.mvi.MviBindings
 import me.scraplesh.courses.navigation.Coordinator
 import me.scraplesh.courses.navigation.AppNavEvent.SignUpNavEvent

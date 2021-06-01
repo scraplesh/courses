@@ -2,9 +2,9 @@ package me.scraplesh.courses.features.settings
 
 import me.scraplesh.courses.features.settings.SettingsUi.Reaction
 import me.scraplesh.courses.features.settings.SettingsUi.UiState
-import me.scraplesh.courses.features.settings.SettingsViewModel.Event
-import me.scraplesh.courses.features.settings.SettingsViewModel.Intention
-import me.scraplesh.courses.features.settings.SettingsViewModel.State
+import me.scraplesh.courses.features.settings.SettingsFeature.Event
+import me.scraplesh.courses.features.settings.SettingsFeature.Intention
+import me.scraplesh.courses.features.settings.SettingsFeature.State
 import me.scraplesh.courses.mvi.MviBindings
 import me.scraplesh.courses.navigation.Coordinator
 import me.scraplesh.courses.navigation.AppNavEvent.SettingsNavEvent
@@ -39,8 +39,8 @@ class SettingsMviBindings @Inject constructor(
                 is State.Content -> UiState.Content(
                     email = newState.email,
                     name = newState.name,
-                    lastName = newState.lastName,
-                    patronymic = newState.patronymic
+                    lastName = newState.lastName ?: "",
+                    patronymic = newState.patronymic ?: ""
                 )
                 State.Error -> UiState.Error
                 State.Loading -> UiState.Loading

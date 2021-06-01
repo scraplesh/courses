@@ -2,8 +2,8 @@ package me.scraplesh.courses.features.timemanagement
 
 import me.scraplesh.courses.features.timemanagement.TimeManagementUi.Reaction
 import me.scraplesh.courses.features.timemanagement.TimeManagementUi.UiState
-import me.scraplesh.courses.features.timemanagement.TimeManagementViewModel.Event
-import me.scraplesh.courses.features.timemanagement.TimeManagementViewModel.Intention
+import me.scraplesh.courses.features.timemanagement.TimeManagementFeature.Event
+import me.scraplesh.courses.features.timemanagement.TimeManagementFeature.Intention
 import me.scraplesh.courses.mvi.MviBindings
 import me.scraplesh.courses.navigation.Coordinator
 import me.scraplesh.courses.navigation.AppNavEvent.TimeManagementNavEvent
