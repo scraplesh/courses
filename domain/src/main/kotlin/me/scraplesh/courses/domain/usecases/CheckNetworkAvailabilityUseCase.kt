@@ -6,6 +6,6 @@ import javax.inject.Inject
 class CheckNetworkAvailabilityUseCase @Inject constructor(
     private val networkService: NetworkService
 ) :
-    BaseUseCase<EmptyArgs, Boolean>() {
-    override suspend fun invoke(args: EmptyArgs?): Boolean = networkService.isNetworkAvailable()
+    SingleUseCase<EmptyArgs, Boolean>() {
+    override suspend fun single(args: EmptyArgs?): Boolean = networkService.isNetworkAvailable()
 }

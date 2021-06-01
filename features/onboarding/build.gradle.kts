@@ -8,6 +8,7 @@ plugins {
 dependencies {
     implementation(project(":core:common"))
     implementation(project(":core:mvi"))
+    implementation(project(":core:mvi-android"))
     implementation(Deps.androidxFragmentKtx)
     implementation(Deps.androidxConstraintLayout)
     implementation(Deps.androidxLifecycleCommon)

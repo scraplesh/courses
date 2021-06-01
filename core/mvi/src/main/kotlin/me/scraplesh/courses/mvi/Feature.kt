@@ -1,11 +1,8 @@
 package me.scraplesh.courses.mvi
 
-import android.util.Log
-import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -31,8 +28,8 @@ interface Feature<Action, Event, State> : FlowCollector<Action>, StateFlow<State
     val events: Flow<Event>
 }
 
-class MviFeature<Intention, Action, Effect, State, Event> private constructor(
-    scope: CoroutineScope,
+abstract class MviFeature<Intention, Action, Effect, State, Event> private constructor(
+    private val scope: CoroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate),
     states: MutableStateFlow<State>,
     private val intentionToAction: IntentionToAction<Intention, Action>,
     bootstrapper: Bootstrapper<Action>? = null,
@@ -42,7 +39,6 @@ class MviFeature<Intention, Action, Effect, State, Event> private constructor(
     postProcessor: PostProcessor<Action, Effect, State>?
 ) : Feature<Intention, Event, State>, StateFlow<State> by states, CoroutineScope by scope {
     constructor(
-        scope: CoroutineScope,
         initialState: State,
         intentionToAction: IntentionToAction<Intention, Action>,
         bootstrapper: Bootstrapper<Action>? = null,
@@ -51,7 +47,6 @@ class MviFeature<Intention, Action, Effect, State, Event> private constructor(
         eventEmitter: EventEmitter<Action, Effect, State, Event>? = null,
         postProcessor: PostProcessor<Action, Effect, State>? = null
     ) : this(
-        scope = scope,
         states = MutableStateFlow(initialState),
         intentionToAction = intentionToAction,
         bootstrapper = bootstrapper,
@@ -68,86 +63,35 @@ class MviFeature<Intention, Action, Effect, State, Event> private constructor(
         actions.onStart { bootstrapper?.invoke()?.let { emitAll(it) } }
             .flatMapLatest { action ->
                 actor(action, value).map { effect ->
-                    Log.d(LOG_TAG, "Effect: $effect")
                     action to effect
                 }
             }
             .onEach { (action, effect) ->
                 states.value = reducer(value, effect)
-                Log.d(LOG_TAG, "State: $value")
 
                 eventEmitter?.invoke(action, effect, value)?.let {
-                    Log.d(LOG_TAG, "Event: $it")
                     launch { (events as MutableSharedFlow).emit(it) }
                 }
                 postProcessor?.invoke(action, effect, value)?.let {
-                    Log.d(LOG_TAG, "Post process: $it")
                     launch { actions.emit(it) }
                 }
             }
-            .launchIn(this)
+            .launchIn(scope)
     }
 
     override suspend fun emit(value: Intention) {
         actions.emit(intentionToAction(value))
     }
-
-    private companion object {
-        const val LOG_TAG = "MVI"
-    }
 }
 
-abstract class MviViewModel<Intention, Action, Effect, State, Event> private constructor(
-    private val scope: CoroutineScope,
-    initialState: State,
-    intentionToAction: IntentionToAction<Intention, Action>,
-    bootstrapper: Bootstrapper<Action>? = null,
-    actor: Actor<Action, State, Effect>,
-    reducer: Reducer<State, Effect>,
-    eventEmitter: EventEmitter<Action, Effect, State, Event>?,
-    postProcessor: PostProcessor<Action, Effect, State>?
-) : ViewModel(), Feature<Intention, Event, State> by MviFeature(
-    scope = scope,
-    initialState = initialState,
-    intentionToAction = intentionToAction,
-    bootstrapper = bootstrapper,
-    actor = actor,
-    reducer = reducer,
-    eventEmitter = eventEmitter,
-    postProcessor = postProcessor
-) {
-    constructor(
-        initialState: State,
-        intentionToAction: IntentionToAction<Intention, Action>,
-        bootstrapper: Bootstrapper<Action>? = null,
-        actor: Actor<Action, State, Effect>,
-        reducer: Reducer<State, Effect>,
-        eventEmitter: EventEmitter<Action, Effect, State, Event>?,
-        postProcessor: PostProcessor<Action, Effect, State>?
-    ) : this(
-        scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate),
-        initialState = initialState,
-        intentionToAction = intentionToAction,
-        bootstrapper = bootstrapper,
-        actor = actor,
-        reducer = reducer,
-        eventEmitter = eventEmitter,
-        postProcessor = postProcessor
-    )
-
-    override fun onCleared() {
-        scope.coroutineContext.cancel()
-    }
-}
-
-abstract class ActorReducerViewModel<Intention, Effect, State, Event>(
+abstract class ActorReducerFeature<Intention, Effect, State, Event>(
     initialState: State,
     bootstrapper: Bootstrapper<Intention>? = null,
     actor: Actor<Intention, State, Effect>,
     reducer: Reducer<State, Effect>,
     eventEmitter: EventEmitter<Intention, Effect, State, Event>? = null,
     postProcessor: PostProcessor<Intention, Effect, State>? = null
-) : MviViewModel<Intention, Intention, Effect, State, Event>(
+) : MviFeature<Intention, Intention, Effect, State, Event>(
     initialState = initialState,
     intentionToAction = { it },
     bootstrapper = bootstrapper,
@@ -159,7 +103,7 @@ abstract class ActorReducerViewModel<Intention, Effect, State, Event>(
 
 abstract class StatelessViewModel<Intention, Event>(
     eventEmitter: EventEmitter<Intention, Unit, Unit, Event>
-) : ActorReducerViewModel<Intention, Unit, Unit, Event>(
+) : ActorReducerFeature<Intention, Unit, Unit, Event>(
     initialState = Unit,
     actor = { _, _ -> flowOf(Unit) },
     reducer = { _, _ -> },

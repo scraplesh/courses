@@ -2,6 +2,7 @@ include(
     ":app",
     ":core:common",
     ":core:mvi",
+    ":core:mvi-android",
     ":core:navigation",
     ":data",
     ":domain",

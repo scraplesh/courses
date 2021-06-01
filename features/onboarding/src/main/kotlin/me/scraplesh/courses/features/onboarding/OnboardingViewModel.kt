@@ -1,99 +1,13 @@
 package me.scraplesh.courses.features.onboarding
 
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOf
-import me.scraplesh.courses.features.onboarding.OnboardingViewModel.Effect
-import me.scraplesh.courses.features.onboarding.OnboardingViewModel.Event
-import me.scraplesh.courses.features.onboarding.OnboardingViewModel.Intention
-import me.scraplesh.courses.features.onboarding.OnboardingViewModel.State
+import me.scraplesh.courses.features.onboarding.OnboardingFeature.Effect
+import me.scraplesh.courses.features.onboarding.OnboardingFeature.Event
+import me.scraplesh.courses.features.onboarding.OnboardingFeature.Intention
+import me.scraplesh.courses.features.onboarding.OnboardingFeature.State
 import me.scraplesh.courses.mvi.ActorReducerViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class OnboardingViewModel @Inject constructor() :
-    ActorReducerViewModel<Intention, Effect, State, Event>(
-        initialState = State.FirstPage,
-        bootstrapper = {
-            flow {
-                delay(DELAY_PAGE)
-                emit(Intention.ShowNextPage)
-            }
-        },
-        actor = { intention, state ->
-            when (intention) {
-                Intention.ShowNextPage -> {
-                    flow {
-                        when (state) {
-                            State.FirstPage -> {
-                                emit(Effect.PageChanged(page = OnboardingPage.Second))
-                                delay(DELAY_PAGE)
-                                emit(Effect.NextPageShown)
-                            }
-                            State.SecondPage -> emit(Effect.PageChanged(page = OnboardingPage.Third))
-                            State.ThirdPage -> emit(Effect.NoEffect)
-                        }
-                    }
-                }
-                Intention.ShowPreviousPage -> {
-                    flow {
-                        when (state) {
-                            State.FirstPage -> emit(Effect.NoEffect)
-                            State.SecondPage -> {
-                                emit(Effect.PageChanged(page = OnboardingPage.First))
-                                delay(DELAY_PAGE)
-                                emit(Effect.NextPageShown)
-                            }
-                            State.ThirdPage -> {
-                                emit(Effect.PageChanged(page = OnboardingPage.Second))
-                                delay(DELAY_PAGE)
-                                emit(Effect.NextPageShown)
-                            }
-                        }
-                    }
-                }
-                else -> flowOf(Effect.NoEffect)
-            }
-        },
-        reducer = { state, effect ->
-            when (effect) {
-                is Effect.PageChanged -> {
-                    when (effect.page) {
-                        OnboardingPage.First -> State.FirstPage
-                        OnboardingPage.Second -> State.SecondPage
-                        OnboardingPage.Third -> State.ThirdPage
-                    }
-                }
-                else -> state
-            }
-        },
-        eventEmitter = { wish, _, _ ->
-            when (wish) {
-                Intention.ShowRegistration -> Event.SignUpRequested
-                Intention.ShowLogin -> Event.SignInRequested
-                else -> null
-            }
-        },
-        postProcessor = { _, effect, _ ->
-            when (effect) {
-                Effect.NextPageShown -> Intention.ShowNextPage
-                else -> null
-            }
-        }
-    ) {
-    enum class Intention { ShowNextPage, ShowPreviousPage, ShowRegistration, ShowLogin }
-
-    sealed interface Effect {
-        object NoEffect : Effect
-        object NextPageShown : Effect
-        class PageChanged(val page: OnboardingPage) : Effect
-    }
-
-    enum class State { FirstPage, SecondPage, ThirdPage }
-    enum class Event { SignUpRequested, SignInRequested }
-
-    private companion object {
-        const val DELAY_PAGE = 3000L
-    }
-}
+class OnboardingViewModel @Inject constructor(feature: OnboardingFeature) :
+    ActorReducerViewModel<Intention, Effect, State, Event>(feature)

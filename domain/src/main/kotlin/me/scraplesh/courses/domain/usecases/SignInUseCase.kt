@@ -4,7 +4,7 @@ import me.scraplesh.courses.domain.repo.UserRepository
 import javax.inject.Inject
 
 class SignInUseCase @Inject constructor(private val repo: UserRepository) :
-    BaseUseCase<SignInUseCase.SignInArgs, Unit>() {
+    SingleUseCase<SignInUseCase.SignInArgs, Unit>() {
 
     data class SignInArgs(val email: String, val password: String) : Args
 

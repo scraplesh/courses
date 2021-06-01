@@ -1,5 +1,6 @@
 package me.scraplesh.courses.data.repo
 
+import me.scraplesh.courses.domain.model.UserInfo
 import me.scraplesh.courses.domain.repo.UserRepository
 import javax.inject.Inject
 
@@ -11,13 +12,17 @@ class CoursesUserRepository @Inject constructor() : UserRepository {
     override suspend fun updateUser(
         email: String,
         name: String,
-        lastName: String,
-        patronymic: String
+        lastName: String?,
+        patronymic: String?
     ) {
         TODO("Not yet implemented")
     }
 
     override suspend fun signUp(email: String, password: String, name: String) {
 //        TODO("Not yet implemented")
+    }
+
+    override fun getUserInfo(): UserInfo? {
+        TODO("Not yet implemented")
     }
 }

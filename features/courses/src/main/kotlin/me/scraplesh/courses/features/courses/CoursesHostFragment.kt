@@ -17,11 +17,10 @@ class CoursesHostFragment : Fragment(R.layout.fragment_courses_host) {
     private var viewBinding: FragmentCoursesHostBinding? = null
     @Inject lateinit var factory: CoursesHostUi.AssistedFactory
     @Inject lateinit var mviBindings: MviBindings<CoursesHostUi, Unit>
-    private lateinit var ui: CoursesHostUi
+    private val ui: CoursesHostUi by lazy { factory.create(childFragmentManager, lifecycle) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ui = factory.create(childFragmentManager, lifecycle)
         mviBindings.setup(lifecycleScope, ui, Unit)
     }
 
