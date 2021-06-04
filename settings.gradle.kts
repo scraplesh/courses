@@ -4,10 +4,12 @@ include(
     ":core:mvi",
     ":core:mvi-android",
     ":core:navigation",
+    ":core:uikit",
     ":data",
     ":domain",
     // features
     ":features:course",
+    ":features:coursefinish",
     ":features:courses",
     ":features:onboarding",
     ":features:settings",

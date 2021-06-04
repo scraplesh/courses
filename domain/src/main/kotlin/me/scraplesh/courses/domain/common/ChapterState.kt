@@ -1,7 +1,7 @@
 package me.scraplesh.courses.domain.common
 
 enum class ChapterState {
-    Current,
+    Unread,
     Completed,
-    Locked,
+    Finished,
 }

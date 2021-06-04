@@ -70,9 +70,9 @@ class TimeManagementUi : Ui<
                         text = title
                         setCompoundDrawablesWithIntrinsicBounds(
                             when (state) {
-                                ChapterState.Current -> R.drawable.ic_dot
-                                ChapterState.Completed -> R.drawable.ic_tick_in_circle
-                                ChapterState.Locked -> R.drawable.ic_lock
+                                ChapterState.Unread -> R.drawable.ic_dot
+                                ChapterState.Completed -> R.drawable.ic_check_mark
+                                ChapterState.Finished -> 0
                             },
                             0,
                             when (item.state) {
@@ -110,9 +110,9 @@ class TimeManagementUi : Ui<
                         text = title
                         setCompoundDrawablesWithIntrinsicBounds(
                             when (state) {
-                                ChapterState.Current -> R.drawable.ic_dot
-                                ChapterState.Completed -> R.drawable.ic_tick_in_circle
-                                ChapterState.Locked -> R.drawable.ic_lock
+                                ChapterState.Unread -> R.drawable.ic_dot
+                                ChapterState.Completed -> R.drawable.ic_check_mark
+                                ChapterState.Finished -> 0
                             },
                             0,
                             0,

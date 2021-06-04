@@ -5,6 +5,13 @@ plugins {
     id("dagger.hilt.android.plugin")
 }
 
+android {
+    sourceSets.getByName("main") {
+        res.srcDir("src/main/res/drawable/reviews")
+        res.srcDir("src/main/res/drawable/courses")
+    }
+}
+
 dependencies {
     implementation(project(":core:common"))
     implementation(project(":core:mvi"))

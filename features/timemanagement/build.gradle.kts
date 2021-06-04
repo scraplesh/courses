@@ -9,6 +9,7 @@ dependencies {
     implementation(project(":core:common"))
     implementation(project(":core:mvi"))
     implementation(project(":core:mvi-android"))
+    implementation(project(":core:uikit"))
     implementation(project(":domain"))
     implementation(Deps.adapterDelegatesKotlinDslViewBinding)
     implementation(Deps.androidxFragmentKtx)

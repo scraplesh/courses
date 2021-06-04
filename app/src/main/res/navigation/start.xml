@@ -11,7 +11,7 @@
         android:id="@+id/onboardingFragment"
         android:name="me.scraplesh.courses.features.onboarding.OnboardingFragment"
         android:label="OnboardingFragment"
-        tools:layout="@layout/fragment_onboarding"
+        tools:layout="@layout/fragment_course_finish"
         >
         <action
             android:id="@+id/action_onboardingFragment_to_signInFragment"

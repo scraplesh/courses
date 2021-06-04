@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="coursefinish_congratulations">Поздравляем!</string>
+    <string name="coursefinish_course_finish_final_words">Вы успешно изучили все материалы курса</string>
+    <string name="coursefinish_continue">Продолжить</string>
+</resources>
