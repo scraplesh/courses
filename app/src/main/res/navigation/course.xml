@@ -32,6 +32,10 @@
             android:id="@+id/action_courseFragment_to_timeManagementFragment"
             app:destination="@id/timeManagementFragment"
             />
+        <action
+            android:id="@+id/action_courseFragment_to_courseFinishFragment"
+            app:destination="@id/courseFinishFragment"
+            />
     </fragment>
 
     <fragment
@@ -45,5 +49,12 @@
             app:argType="me.scraplesh.courses.common.model.CourseDto"
             />
     </fragment>
+
+    <fragment
+        android:id="@+id/courseFinishFragment"
+        android:name="me.scraplesh.courses.features.coursefinish.CourseFinishFragment"
+        android:label="CourseFinishFragment"
+        tools:layout="@layout/fragment_course_finish"
+        />
 
 </navigation>

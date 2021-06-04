@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="main">#363A44</color>
-    <color name="greyscale">#DBDBDB</color>
+    <color name="white_50">#80ffffff</color>
     <color name="white">#fff</color>
+    <color name="athens_gray">#EDEDF3</color>
+    <color name="mischka">#D7D7E8</color>
+    <color name="mischka2">#DCDCE8</color>
+    <color name="mischka3">#E0E0EA</color>
+    <color name="white_lilac">#F0F0F9</color>
+    <color name="white_lilac2">#F9F9FD</color>
+    <color name="athens_gray2">#E6E6EF</color>
+    <color name="white_lilac4">#F7F7FC</color>
+    <color name="white_lilac3">#E0E0EA</color>
+    <color name="whisper">#E7E7F2</color>
+    <color name="silver">#CCCCCC</color>
+    <color name="french_gray">#BEBEC3</color>
+    <color name="gray">#8B8B8B</color>
+    <color name="jumbo">#7D7D88</color>
+    <color name="scarpa_flow">#5A5A64</color>
+    <color name="abbey">#4F5258</color>
+    <color name="rice_flower">#EEFFE6</color>
+    <color name="peppermint">#D1EECA</color>
+    <color name="apple">#4DA836</color>
+    <color name="forest_green">#337623</color>
+    <color name="cornflower_blue">#698BFC</color>
+    <color name="mariner">#2E5FD4</color>
+    <color name="cerulean_blue2">#2956C1</color>
+    <color name="cerulean_blue">#2352C3</color>
+    <color name="persian_blue">#204AB0</color>
+    <color name="jacksons_purple">#193787</color>
+    <color name="burnt_sienna">#EF6A67</color>
+    <color name="tabasco">#B2170D</color>
+    <color name="woodsmoke">#161718</color>
 </resources>

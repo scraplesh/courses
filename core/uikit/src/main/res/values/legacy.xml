@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="spacing_medium">16dp</dimen>
+    <dimen name="spacing_big">20dp</dimen>
+    <dimen name="size_4">4dp</dimen>
+    <color name="main">@color/jacksons_purple</color>
+</resources>
