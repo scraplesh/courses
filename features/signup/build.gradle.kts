@@ -9,6 +9,7 @@ dependencies {
     implementation(project(":core:common"))
     implementation(project(":core:mvi"))
     implementation(project(":core:mvi-android"))
+    implementation(project(":core:uikit"))
     implementation(project(":domain"))
     implementation(Deps.androidxConstraintLayout)
     implementation(Deps.androidxCoreKtx)
@@ -18,4 +19,5 @@ dependencies {
     kapt(Deps.hiltCompiler)
     implementation(Deps.hiltViewModel)
     kapt(Deps.hiltAndroidCompiler)
+    implementation(Deps.material)
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CbsTextAppearance" parent="TextAppearance.AppCompat" />
+
+    <style name="CbsTextAppearance.H1">
+        <item name="android:textColor">@color/woodsmoke</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:textSize">@dimen/text_size_26</item>
+    </style>
+</resources>

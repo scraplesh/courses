@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <ImageButton
+        android:id="@+id/button_toolbar"
+        android:layout_width="?android:attr/actionBarSize"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="?attr/selectableItemBackground"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_arrow_left"
+        />
+
+    <TextView
+        android:id="@+id/textview_toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/CbsTextAppearance.H1"
+        tools:layout_gravity="center_horizontal"
+        tools:layout_marginTop="@dimen/spacing_32"
+        tools:text="Регистрация"
+        />
+
+</FrameLayout>

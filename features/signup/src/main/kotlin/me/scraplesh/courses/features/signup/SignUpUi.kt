@@ -75,10 +75,10 @@ class SignUpUi @Inject constructor() :
 
     override fun bindViews(view: FragmentSignupBinding) {
         with(view) {
-            backButton = buttonSignupBack
+//            backButton = buttonSignupBack
             createAccountButton = buttonSignupSignup
             emailField = edittextSignupEmail
-            nameField = edittextSignupName
+//            nameField = edittextSignupName
             passwordField = edittextSignupPassword
             loadingView = progressbarSignup
         }

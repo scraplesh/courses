@@ -35,7 +35,7 @@ object Versions {
     const val firebaseBom = "25.12.0"
     const val hiltAndroidCompiler = "1.0.0-beta01"
     const val hiltViewModel = "1.0.0-alpha03"
-    const val material = "1.2.0"
+    const val material = "1.3.0"
     const val room = "2.2.5"
     // endregion
 

@@ -12,43 +12,37 @@
         android:layout_height="wrap_content"
         >
 
-        <Button
-            android:id="@+id/button_signup_back"
-            android:layout_width="@dimen/toolbar_height"
-            android:layout_height="@dimen/toolbar_height"
-            android:background="@null"
-            android:text="⬅"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
-
-        <TextView
-            android:id="@+id/textview_signup_title"
-            android:layout_width="wrap_content"
+        <ru.emba.uikit.toolbar.CbsToolbar
+            android:id="@+id/cbstoolbar_signup"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-black"
-            android:text="@string/signup_account_enter"
-            android:textColor="@android:color/black"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@id/edittext_signup_name"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed"
+            app:text="@string/signup_sign_up"
             />
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/edittext_signup_name"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="64dp"
             android:layout_marginTop="40dp"
-            android:hint="@string/signup_name"
-            android:inputType="textPersonName"
+            app:boxStrokeColor="@color/dodger_blue"
+            app:boxStrokeWidth="2dp"
+            app:hintEnabled="false"
             app:layout_constraintBottom_toTopOf="@id/edittext_signup_password"
             app:layout_constraintEnd_toEndOf="@id/guide_signup_end"
             app:layout_constraintStart_toStartOf="@id/guide_signup_start"
-            app:layout_constraintTop_toBottomOf="@id/textview_signup_title"
-            />
+            app:layout_constraintTop_toBottomOf="@id/cbstoolbar_signup"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/signup_name"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <EditText
             android:id="@+id/edittext_signup_email"
@@ -56,6 +50,7 @@
             android:layout_height="64dp"
             android:layout_marginTop="40dp"
             android:hint="@string/signup_e_mail"
+            android:importantForAutofill="no"
             android:inputType="textEmailAddress"
             app:layout_constraintBottom_toTopOf="@id/edittext_signup_password"
             app:layout_constraintEnd_toEndOf="@id/guide_signup_end"
@@ -69,6 +64,7 @@
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
             android:hint="@string/signup_password"
+            android:importantForAutofill="no"
             android:inputType="textPassword"
             app:layout_constraintBottom_toTopOf="@id/button_signup_signup"
             app:layout_constraintEnd_toEndOf="@id/guide_signup_end"

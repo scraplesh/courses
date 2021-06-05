@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CbsToolbar">
+        <attr name="size" format="enum">
+            <enum name="large" value="0" />
+            <enum name="regular" value="1" />
+        </attr>
+        <attr name="text" format="string|reference" />
+    </declare-styleable>
+</resources>
