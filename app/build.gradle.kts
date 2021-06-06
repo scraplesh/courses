@@ -86,7 +86,6 @@ dependencies {
     implementation(project(":features:signin"))
     implementation(project(":features:signup"))
     implementation(project(":features:timemanagement"))
-    implementation(Deps.Android.activity)
     implementation(Deps.Android.appCompat)
     implementation(Deps.Android.fragmentKtx)
     implementation(Deps.Navigation.fragmentKtx)

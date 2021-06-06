@@ -10,7 +10,6 @@ object Deps {
     }
 
     object Android {
-        const val activity = "androidx.appcompat:appcompat:${Versions.androidxActivity}"
         const val appCompat = "androidx.appcompat:appcompat:${Versions.androidxAppCompat}"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.androidxConstraintLayout}"
         const val coreKtx = "androidx.core:core-ktx:${Versions.androidxCoreKtx}"
@@ -33,8 +32,6 @@ object Deps {
     }
 
     object Dagger {
-        const val dagger = "com.google.dagger:dagger:${Versions.dagger}"
-        const val compiler = "com.google.dagger:dagger-compiler:${Versions.dagger}"
         const val hiltAndroid = "com.google.dagger:hilt-android:${Versions.dagger}"
         const val hiltCompiler = "com.google.dagger:hilt-compiler:${Versions.dagger}"
         const val hiltViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltViewModel}"
