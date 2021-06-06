@@ -53,6 +53,10 @@
             app:popUpTo="@id/main"
             app:popUpToInclusive="true"
             />
+        <action
+            android:id="@+id/action_signUpFragment_to_privacyPolicyActivity"
+            app:destination="@id/privacyPolicyActivity"
+            />
     </fragment>
 
     <activity
@@ -62,6 +66,12 @@
         app:data="https://example.com/restore-password"
         />
 
+    <activity
+        android:id="@+id/privacyPolicyActivity"
+        android:label="PrivacyPolicy"
+        app:action="android.intent.action.VIEW"
+        app:data="https://m.e-mba.ru/policity/privacy-policy"
+        />
 
     <include app:graph="@navigation/main" />
 

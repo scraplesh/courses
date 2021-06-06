@@ -4,7 +4,7 @@
         <layer-list>
             <item>
                 <shape android:shape="rectangle">
-                    <corners android:radius="8dp" />
+                    <corners android:radius="@dimen/button_corner_size" />
                     <gradient android:angle="45"
                         android:endColor="@color/cerulean_blue"
                         android:startColor="@color/mariner"
@@ -20,7 +20,7 @@
     </item>
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
-            <corners android:radius="8dp" />
+            <corners android:radius="@dimen/button_corner_size" />
             <gradient android:angle="45"
                 android:endColor="@color/persian_blue"
                 android:startColor="@color/cerulean_blue2"
@@ -29,7 +29,7 @@
     </item>
     <item>
         <shape android:shape="rectangle">
-            <corners android:radius="8dp" />
+            <corners android:radius="@dimen/button_corner_size" />
             <gradient android:angle="45"
                 android:endColor="@color/cerulean_blue"
                 android:startColor="@color/mariner"

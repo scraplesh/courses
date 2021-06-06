@@ -5,7 +5,7 @@ import me.scraplesh.courses.domain.model.Course
 sealed interface AppNavEvent : NavEvent {
     enum class OnboardingNavEvent : CoursesNavEvent { ShowSignIn, ShowSignUp }
     enum class SignInNavEvent : CoursesNavEvent { NavigatedBack, SignedIn, ShowPasswordRecovery }
-    enum class SignUpNavEvent : CoursesNavEvent { NavigatedBack, SignedUp }
+    enum class SignUpNavEvent : CoursesNavEvent { NavigatedBack, SignedUp, PrivacyPolicyRequested }
     enum class CoursesHostNavEvent : CoursesNavEvent { NavigatedBack, ShowSettings }
 
     sealed interface CourseNavEvent : CoursesNavEvent {

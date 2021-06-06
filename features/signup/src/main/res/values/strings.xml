@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="signup_sign_up">Регистрация</string>
-    <string name="signup_restore_password">Забыли пароль? Восстановить</string>
-    <string name="signup_enter">Создать аккаунт</string>
     <string name="signup_password">Пароль</string>
     <string name="signup_e_mail">E-mail</string>
     <string name="signup_name">Имя</string>
+    <string name="signup_create_account">Создать аккаунт</string>
+    <string name="signup_privacy_policy_part1">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c </string>
+    <string name="signup_privacy_policy_part2">политикой конфиденциальности</string>
+    <string name="signup_invalid_email">Некорректный адрес электронной почты</string>
+    <string name="signup_empty_name">Заполните имя</string>
 </resources>

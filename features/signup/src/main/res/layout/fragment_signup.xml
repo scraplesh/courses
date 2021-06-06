@@ -2,6 +2,7 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
@@ -22,66 +23,86 @@
             />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edittext_signup_name"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/textinputlayout_signup_name"
             android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:layout_marginTop="40dp"
-            app:boxStrokeColor="@color/dodger_blue"
-            app:boxStrokeWidth="2dp"
-            app:hintEnabled="false"
-            app:layout_constraintBottom_toTopOf="@id/edittext_signup_password"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_32"
             app:layout_constraintEnd_toEndOf="@id/guide_signup_end"
             app:layout_constraintStart_toStartOf="@id/guide_signup_start"
             app:layout_constraintTop_toBottomOf="@id/cbstoolbar_signup"
             >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textinpitedittext_signup_name"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/edittext_height"
                 android:hint="@string/signup_name"
+                android:inputType="textPersonName"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/edittext_signup_email"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textinputlayout_signup_email"
             android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:layout_marginTop="40dp"
-            android:hint="@string/signup_e_mail"
-            android:importantForAutofill="no"
-            android:inputType="textEmailAddress"
-            app:layout_constraintBottom_toTopOf="@id/edittext_signup_password"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_8"
             app:layout_constraintEnd_toEndOf="@id/guide_signup_end"
             app:layout_constraintStart_toStartOf="@id/guide_signup_start"
-            app:layout_constraintTop_toBottomOf="@id/edittext_signup_name"
+            app:layout_constraintTop_toBottomOf="@id/textinputlayout_signup_name"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textinpitedittext_signup_email"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height"
+                android:hint="@string/signup_e_mail"
+                android:inputType="textEmailAddress"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textinputlayout_signup_password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_8"
+            app:endIconMode="password_toggle"
+            app:layout_constraintEnd_toEndOf="@id/guide_signup_end"
+            app:layout_constraintStart_toStartOf="@id/guide_signup_start"
+            app:layout_constraintTop_toBottomOf="@id/textinputlayout_signup_email"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textinpitedittext_signup_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height"
+                android:hint="@string/signup_password"
+                android:inputType="textPassword"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_signup_create_account"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/size_50"
+            android:layout_marginTop="@dimen/spacing_24"
+            android:text="@string/signup_create_account"
+            app:layout_constraintEnd_toEndOf="@id/guide_signup_end"
+            app:layout_constraintStart_toStartOf="@id/guide_signup_start"
+            app:layout_constraintTop_toBottomOf="@id/textinputlayout_signup_password"
             />
 
-        <EditText
-            android:id="@+id/edittext_signup_password"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textview_signup_privacy_policy"
             android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:layout_marginTop="16dp"
-            android:hint="@string/signup_password"
-            android:importantForAutofill="no"
-            android:inputType="textPassword"
-            app:layout_constraintBottom_toTopOf="@id/button_signup_signup"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_26"
             app:layout_constraintEnd_toEndOf="@id/guide_signup_end"
             app:layout_constraintStart_toStartOf="@id/guide_signup_start"
-            app:layout_constraintTop_toBottomOf="@id/edittext_signup_email"
-            />
-
-        <Button
-            android:id="@+id/button_signup_signup"
-            android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/signup_enter"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/guide_signup_end"
-            app:layout_constraintStart_toStartOf="@id/guide_signup_start"
-            app:layout_constraintTop_toBottomOf="@id/edittext_signup_password"
+            app:layout_constraintTop_toBottomOf="@id/button_signup_create_account"
+            tools:text="@string/signup_privacy_policy_part1"
             />
 
         <ProgressBar

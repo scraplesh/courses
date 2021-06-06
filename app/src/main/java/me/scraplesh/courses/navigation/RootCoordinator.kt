@@ -53,6 +53,9 @@ class RootCoordinator @Inject constructor(
             SignUpNavEvent.SignedUp -> {
                 navController.navigate(SignUpFragmentDirections.actionSignUpFragmentToMain())
             }
+            SignUpNavEvent.PrivacyPolicyRequested -> navController.navigate(
+                SignUpFragmentDirections.actionSignUpFragmentToPrivacyPolicyActivity()
+            )
             CoursesHostNavEvent.NavigatedBack -> navController.navigateUp()
             CoursesHostNavEvent.ShowSettings -> {
                 navController.navigate(

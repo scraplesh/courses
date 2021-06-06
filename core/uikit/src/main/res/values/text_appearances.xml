@@ -8,4 +8,17 @@
         <item name="android:fontFamily">sans-serif-condensed</item>
         <item name="android:textSize">@dimen/text_size_26</item>
     </style>
+
+    <style name="CbsTextAppearance.EditTextError">
+        <item name="android:textSize">@dimen/text_size_14</item>
+    </style>
+
+    <style name="CbsTextAppearance.PrimaryButton">
+        <item name="android:textSize">@dimen/text_size_18</item>
+    </style>
+
+    <style name="CbsTextAppearance.SmallText">
+        <item name="android:textSize">@dimen/text_size_13</item>
+        <item name="android:textColor">@color/jumbo</item>
+    </style>
 </resources>
