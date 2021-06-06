@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/coursesHostFragment"
-        android:name="me.scraplesh.courses.features.courses.CoursesHostFragment"
+        android:name="ru.emba.cbs.features.courses.CoursesHostFragment"
         android:label="CoursesHostFragment"
         tools:layout="@layout/fragment_courses_host"
         >
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="me.scraplesh.courses.features.settings.SettingsFragment"
+        android:name="ru.emba.cbs.features.settings.SettingsFragment"
         android:label="SettingsFragment"
         tools:layout="@layout/fragment_settings"
         >

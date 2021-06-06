@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/onboardingFragment"
-        android:name="me.scraplesh.courses.features.onboarding.OnboardingFragment"
+        android:name="ru.emba.cbs.features.onboarding.OnboardingFragment"
         android:label="OnboardingFragment"
         tools:layout="@layout/fragment_course_finish"
         >
@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/signInFragment"
-        android:name="me.scraplesh.courses.features.signin.SignInFragment"
+        android:name="ru.emba.cbs.features.signin.SignInFragment"
         android:label="SignInFragment"
         tools:layout="@layout/fragment_settings"
         >
@@ -43,7 +43,7 @@
 
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="me.scraplesh.courses.features.signup.SignUpFragment"
+        android:name="ru.emba.cbs.features.signup.SignUpFragment"
         android:label="SignUpFragment"
         tools:layout="@layout/fragment_signup"
         >

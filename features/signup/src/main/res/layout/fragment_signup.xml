@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         >
 
-        <ru.emba.uikit.toolbar.CbsToolbar
+        <ru.emba.cbs.uikit.toolbar.CbsToolbar
             android:id="@+id/cbstoolbar_signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

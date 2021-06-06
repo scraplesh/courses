@@ -1,9 +1,12 @@
 plugins {
-    id("com.android.library")
-    id("kotlin-android")
+    id("java-library")
+    id("kotlin")
 }
 
+java.sourceCompatibility = JavaVersion.VERSION_1_8
+java.targetCompatibility = JavaVersion.VERSION_1_8
+
 dependencies {
-    implementation(Deps.Coroutines.android)
+    implementation(Deps.kotlinStdLib)
     implementation(Deps.Coroutines.core)
 }

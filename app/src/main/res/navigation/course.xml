@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/coursesFragment"
-        android:name="me.scraplesh.courses.features.courses.list.CoursesFragment"
+        android:name="ru.emba.cbs.features.courses.list.CoursesFragment"
         android:label="CoursesFragment"
         tools:layout="@layout/fragment_courses"
         >
@@ -20,13 +20,13 @@
 
     <fragment
         android:id="@+id/courseFragment"
-        android:name="me.scraplesh.courses.features.course.CourseFragment"
+        android:name="ru.emba.cbs.features.course.CourseFragment"
         android:label="CourseFragment"
         tools:layout="@layout/fragment_course"
         >
         <argument
             android:name="course"
-            app:argType="me.scraplesh.courses.common.model.CourseDto"
+            app:argType="ru.emba.cbs.common.model.CourseDto"
             />
         <action
             android:id="@+id/action_courseFragment_to_timeManagementFragment"
@@ -40,19 +40,19 @@
 
     <fragment
         android:id="@+id/timeManagementFragment"
-        android:name="me.scraplesh.courses.features.timemanagement.TimeManagementFragment"
+        android:name="ru.emba.cbs.features.timemanagement.TimeManagementFragment"
         android:label="TimeManagementFragment"
         tools:layout="@layout/fragment_timemanagement"
         >
         <argument
             android:name="course"
-            app:argType="me.scraplesh.courses.common.model.CourseDto"
+            app:argType="ru.emba.cbs.common.model.CourseDto"
             />
     </fragment>
 
     <fragment
         android:id="@+id/courseFinishFragment"
-        android:name="me.scraplesh.courses.features.coursefinish.CourseFinishFragment"
+        android:name="ru.emba.cbs.features.coursefinish.CourseFinishFragment"
         android:label="CourseFinishFragment"
         tools:layout="@layout/fragment_course_finish"
         />

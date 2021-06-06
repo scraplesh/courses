@@ -6,5 +6,5 @@ object AndroidConfig {
     const val versionCode = 1
     const val versionName = "0.1.0"
 
-    const val applicationId = "me.scraplesh.courses"
+    const val applicationId = "ru.emba.cbs"
 }
