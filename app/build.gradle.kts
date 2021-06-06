@@ -16,7 +16,8 @@ android {
         versionCode = AndroidConfig.versionCode
         versionName = AndroidConfig.versionName
 
-        buildConfigField("String", "productionFlavorName", "\"${Environment.Production.value}\"")
+        buildConfigField("String", "authUrl", "\"https://e-mba.ru/oauth/token\"")
+        buildConfigField("String", "apiUrl", "\"https://e-mba.ru/api/v1/\"")
     }
 
     signingConfigs {
@@ -56,7 +57,6 @@ android {
 
     sourceSets.getByName("main") {
         java.srcDir("src/main/kotlin")
-        java.srcDir("src/main/kotlinx")
     }
     sourceSets.getByName("debug") {
         java.srcDir("src/debug/kotlin")
@@ -88,6 +88,8 @@ dependencies {
     implementation(project(":features:timemanagement"))
     implementation(Deps.Android.appCompat)
     implementation(Deps.Android.fragmentKtx)
+    implementation(Deps.Libraries.okHttpLogging)
+    implementation(Deps.Libraries.retrofit)
     implementation(Deps.Navigation.fragmentKtx)
     implementation(Deps.Navigation.uiKtx)
     implementation(Deps.Dagger.hiltAndroid)

@@ -51,6 +51,7 @@ object Deps {
         const val corbindMaterial = "ru.ldralighieri.corbind:corbind-material:${Versions.corbind}"
         const val javaInject = "javax.inject:javax.inject:${Versions.javaInject}"
         const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+        const val okHttpLogging = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
     }
 }
 // @formatter:on

@@ -1,5 +1,6 @@
 package me.scraplesh.courses.mvi
 
+import android.util.Log
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -62,6 +63,7 @@ abstract class MviFeature<Intention, Action, Effect, State, Event> private const
     init {
         actions.onStart { bootstrapper?.invoke()?.let { emitAll(it) } }
             .flatMapLatest { action ->
+                Log.d("MVI", action.toString())
                 actor(action, value).map { effect ->
                     action to effect
                 }

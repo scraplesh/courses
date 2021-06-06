@@ -23,6 +23,7 @@ object Versions {
     const val javaInject = "1"
     const val kotlin = "1.5.0"
     const val material = "1.3.0"
+    const val okhttp = "4.9.0"
     const val retrofit = "2.9.0"
     const val room = "2.2.5"
 }

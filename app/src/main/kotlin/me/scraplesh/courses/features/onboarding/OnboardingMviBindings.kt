@@ -1,10 +1,10 @@
 package me.scraplesh.courses.features.onboarding
 
-import me.scraplesh.courses.features.onboarding.OnboardingUi.Reaction
-import me.scraplesh.courses.features.onboarding.OnboardingFeature.Intention
 import me.scraplesh.courses.features.onboarding.OnboardingFeature.Event
-import me.scraplesh.courses.navigation.AppNavEvent.OnboardingNavEvent
+import me.scraplesh.courses.features.onboarding.OnboardingFeature.Intention
+import me.scraplesh.courses.features.onboarding.OnboardingUi.Reaction
 import me.scraplesh.courses.mvi.MviBindings
+import me.scraplesh.courses.navigation.AppNavEvent.OnboardingNavEvent
 import me.scraplesh.courses.navigation.Coordinator
 import javax.inject.Inject
 

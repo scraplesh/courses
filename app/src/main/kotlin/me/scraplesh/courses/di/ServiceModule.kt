@@ -6,6 +6,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import me.scraplesh.courses.data.services.AndroidNetworkService
 import me.scraplesh.courses.data.services.CbsEmailService
+import me.scraplesh.courses.domain.services.AuthService
+import me.scraplesh.courses.domain.services.CbsAuthService
 import me.scraplesh.courses.domain.services.EmailService
 import me.scraplesh.courses.domain.services.NetworkService
 
@@ -17,4 +19,7 @@ abstract class ServiceModule {
 
     @Binds
     abstract fun bindEmailService(service: CbsEmailService): EmailService
+
+    @Binds
+    abstract fun bindAuthService(service: CbsAuthService): AuthService
 }

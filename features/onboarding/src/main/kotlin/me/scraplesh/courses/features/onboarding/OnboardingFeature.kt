@@ -13,12 +13,6 @@ import javax.inject.Inject
 class OnboardingFeature @Inject constructor() :
     ActorReducerFeature<Intention, Effect, State, Event>(
         initialState = State.FirstPage,
-        bootstrapper = {
-            flow {
-                delay(DELAY_PAGE)
-                emit(Intention.ShowNextPage)
-            }
-        },
         actor = { intention, state ->
             when (intention) {
                 Intention.ShowNextPage -> {
