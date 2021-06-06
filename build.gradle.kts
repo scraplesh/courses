@@ -9,10 +9,10 @@ buildscript {
         google()
     }
     dependencies {
-        classpath(Deps.androidGradlePlugin)
-        classpath(Deps.kotlinGradlePlugin)
-        classpath(Deps.hiltAndroidPlugin)
-        classpath(Deps.safeArgsPlugin)
+        classpath(Plugins.androidGradle)
+        classpath(Plugins.kotlinGradle)
+        classpath(Plugins.hiltAndroid)
+        classpath(Plugins.safeArgs)
     }
 }
 allprojects {

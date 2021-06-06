@@ -7,7 +7,7 @@ plugins {
 
 dependencies {
     implementation(project(":domain"))
-    implementation(Deps.androidxConstraintLayout)
-    implementation(Deps.androidxFragmentKtx)
-    implementation(Deps.material)
+    implementation(Deps.Android.constraintLayout)
+    implementation(Deps.Android.fragmentKtx)
+    implementation(Deps.Android.material)
 }

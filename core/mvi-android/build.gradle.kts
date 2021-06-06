@@ -5,7 +5,7 @@ plugins {
 
 dependencies {
     implementation(project(":core:mvi"))
-    implementation(Deps.androidxLifecycleViewModelKtx)
-    implementation(Deps.coroutinesAndroid)
-    implementation(Deps.coroutinesCore)
+    implementation(Deps.Lifecycle.viewModelKtx)
+    implementation(Deps.Coroutines.android)
+    implementation(Deps.Coroutines.core)
 }

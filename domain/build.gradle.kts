@@ -8,6 +8,6 @@ java.targetCompatibility = JavaVersion.VERSION_1_8
 
 dependencies {
     implementation(Deps.kotlinStdLib)
-    implementation(Deps.coroutinesCore)
-    implementation(Deps.javaInject)
+    implementation(Deps.Coroutines.core)
+    implementation(Deps.Libraries.javaInject)
 }

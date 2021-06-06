@@ -10,6 +10,6 @@ android {
 }
 
 dependencies {
-    implementation(Deps.androidxConstraintLayout)
-    implementation(Deps.material)
+    implementation(Deps.Android.constraintLayout)
+    implementation(Deps.Android.material)
 }
