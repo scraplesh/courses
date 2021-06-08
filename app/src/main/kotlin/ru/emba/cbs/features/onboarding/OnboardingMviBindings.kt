@@ -12,6 +12,24 @@ class OnboardingMviBindings @Inject constructor(
     private val coordinator: Coordinator
 ) : MviBindings<OnboardingUi, OnboardingViewModel>() {
     override fun setup(view: OnboardingUi, viewModel: OnboardingViewModel) {
+        bind(viewModel to view using {
+            OnboardingUi.UiState(
+                items = listOf(
+                    OnboardingUi.Item(
+                        title = R.string.onboarding_title1,
+                        description = R.string.onboarding_description1
+                    ),
+                OnboardingUi.Item(
+                        title = R.string.onboarding_title2,
+                        description = R.string.onboarding_description2
+                    ),
+                OnboardingUi.Item(
+                        title = R.string.onboarding_title3,
+                        description = R.string.onboarding_description3
+                    ),
+                )
+            )
+        })
         bind(view to viewModel using { reaction ->
             when (reaction) {
                 Reaction.SignInClicked -> Intention.ShowLogin

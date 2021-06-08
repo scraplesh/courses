@@ -8,12 +8,11 @@ import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.emitAll
+import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 
 typealias IntentionToAction<Intention, Action> = (intention: Intention) -> Action
@@ -59,7 +58,7 @@ abstract class MviFeature<Intention, Action, Effect, State, Event> private const
     private val actions = MutableSharedFlow<Action>()
 
     init {
-        actions.onStart { bootstrapper?.invoke()?.let { emitAll(it) } }
+        (bootstrapper?.invoke() ?: emptyFlow()).flatMapLatest { actions }
             .flatMapLatest { action ->
                 actor(action, value).map { effect ->
                     action to effect

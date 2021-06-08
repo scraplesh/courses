@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/textview_itemonboarding_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_36"
+        android:layout_marginEnd="@dimen/spacing_36"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center_horizontal"
+        android:textColor="@color/woodsmoke"
+        android:textSize="@dimen/text_size_26"
+        android:textStyle="bold"
+        tools:text="Достигайте целей быстрее"
+        />
+
+    <TextView
+        android:id="@+id/textview_itemonboarding_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_16"
+        android:gravity="center_horizontal"
+        android:textColor="@color/woodsmoke"
+        tools:text="Научитесь рационально подходить
+к желаниям и приумножайте возможности"
+        />
+
+</LinearLayout>

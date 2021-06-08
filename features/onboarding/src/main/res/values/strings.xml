@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="onboarding_already_have_account">Уже есть аккаунт? Войти</string>
+    <string name="onboarding_sign_in">Войти</string>
     <string name="onboarding_registration">Регистрация</string>
+    <string name="onboarding_title1">Достигайте целей быстрее</string>
+    <string name="onboarding_description1">Научитесь рационально подходить к желаниям и приумножайте возможности</string>
+    <string name="onboarding_title2">Учитесь мыслить критически</string>
+    <string name="onboarding_description2">И находите рациональные решения в любой ситуации</string>
+    <string name="onboarding_title3">Добивайтесь успеха в любом деле</string>
+    <string name="onboarding_description3">Универсальные компетенции для карьеры и личного роста</string>
 </resources>

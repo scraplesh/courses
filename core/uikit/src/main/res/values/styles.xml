@@ -19,6 +19,10 @@
 
     <style name="Theme.CbsApp" parent="Theme.Base" />
 
+    <style name="ShapeAppearanceOverlay.MaterialComponents.CbsChip" parent="">
+        <item name="cornerSize">@dimen/size_4</item>
+    </style>
+
     <style name="Theme.CbsApp.Splash">
         <item name="android:windowBackground">@drawable/launch_background</item>
         <item name="android:navigationBarColor">@color/jacksons_purple</item>
