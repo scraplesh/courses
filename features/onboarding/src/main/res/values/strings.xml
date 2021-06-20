@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="onboarding_already_have_account">Уже есть аккаунт? Войти</string>
+    <string name="onboarding_already_have_account">Уже есть аккаунт?</string>
     <string name="onboarding_sign_in">Войти</string>
     <string name="onboarding_registration">Регистрация</string>
     <string name="onboarding_title1">Достигайте целей быстрее</string>

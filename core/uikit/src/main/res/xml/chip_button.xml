@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<chip
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:chipBackgroundColor="@color/white_lilac"
-    app:closeIconVisible="false"
-    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MaterialComponents.CbsChip"
-    />

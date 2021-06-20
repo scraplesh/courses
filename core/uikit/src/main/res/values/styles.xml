@@ -55,7 +55,7 @@
     </style>
 
     <style name="ShapeAppearance.CbsPrimaryButton" parent="ShapeAppearance.MaterialComponents.SmallComponent">
-        <item name="cornerSize">@dimen/button_corner_size</item>
+        <item name="cornerSize">@dimen/corner_size_8</item>
     </style>
 
     <!-- endregion -->

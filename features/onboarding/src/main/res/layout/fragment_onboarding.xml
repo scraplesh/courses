@@ -39,13 +39,14 @@
         app:layout_constraintStart_toStartOf="@id/guide_onboarding_start"
         />
 
-    <TextView
+    <ru.emba.cbs.uikit.textwithbutton.CbsTextWithButton
         android:id="@+id/textview_onboarding_already_have_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/spacing_32"
         android:gravity="center_vertical"
-        android:text="@string/onboarding_already_have_account"
+        app:labelText="@string/onboarding_already_have_account"
+        app:buttonText="@string/onboarding_sign_in"
         android:textColor="@color/woodsmoke"
         android:textSize="@dimen/text_size_16"
         app:layout_constraintBottom_toBottomOf="parent"

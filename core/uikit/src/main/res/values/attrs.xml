@@ -7,4 +7,9 @@
         </attr>
         <attr name="text" format="string|reference" />
     </declare-styleable>
+
+    <declare-styleable name="CbsTextWithButton">
+        <attr name="labelText" format="string|reference" />
+        <attr name="buttonText" format="string|reference" />
+    </declare-styleable>
 </resources>
