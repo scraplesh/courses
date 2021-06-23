@@ -12,76 +12,74 @@
         android:layout_height="wrap_content"
         >
 
-        <Button
-            android:id="@+id/button_signin_back"
-            android:layout_width="@dimen/toolbar_height"
-            android:layout_height="@dimen/toolbar_height"
-            android:background="@null"
-            android:text="⬅"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
-
-        <TextView
-            android:id="@+id/textview_signin_title"
-            android:layout_width="wrap_content"
+        <ru.emba.cbs.uikit.toolbar.CbsToolbar
+            android:id="@+id/cbstoolbar_signin"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-black"
-            android:text="@string/signin_account_enter"
-            android:textColor="@android:color/black"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@id/edittext_signin_email"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed"
+            app:text="@string/signin_sign_in"
             />
 
-        <EditText
-            android:id="@+id/edittext_signin_email"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textinputlayout_signin_email"
             android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:layout_marginTop="40dp"
-            android:hint="@string/signin_e_mail"
-            app:layout_constraintBottom_toTopOf="@id/edittext_signin_password"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_32"
             app:layout_constraintEnd_toEndOf="@id/guide_signin_end"
             app:layout_constraintStart_toStartOf="@id/guide_signin_start"
-            app:layout_constraintTop_toBottomOf="@id/textview_signin_title"
-            />
+            app:layout_constraintTop_toBottomOf="@id/cbstoolbar_signin"
+            >
 
-        <EditText
-            android:id="@+id/edittext_signin_password"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textinpitedittext_signin_email"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height"
+                android:hint="@string/signin_e_mail"
+                android:inputType="textEmailAddress"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textinputlayout_signin_password"
             android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:layout_marginTop="16dp"
-            android:hint="@string/signin_password"
-            app:layout_constraintBottom_toTopOf="@id/button_signin"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_8"
+            app:endIconMode="password_toggle"
             app:layout_constraintEnd_toEndOf="@id/guide_signin_end"
             app:layout_constraintStart_toStartOf="@id/guide_signin_start"
-            app:layout_constraintTop_toBottomOf="@id/edittext_signin_email"
-            />
+            app:layout_constraintTop_toBottomOf="@id/textinputlayout_signin_email"
+            >
 
-        <Button
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textinpitedittext_signin_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height"
+                android:hint="@string/signin_password"
+                android:inputType="textPassword"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_signin"
             android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/signin_enter"
-            app:layout_constraintBottom_toTopOf="@id/textview_signin_restore"
+            android:layout_height="@dimen/size_50"
+            android:layout_marginTop="@dimen/spacing_24"
+            android:text="@string/signin_sign_in"
             app:layout_constraintEnd_toEndOf="@id/guide_signin_end"
             app:layout_constraintStart_toStartOf="@id/guide_signin_start"
-            app:layout_constraintTop_toBottomOf="@id/edittext_signin_password"
+            app:layout_constraintTop_toBottomOf="@id/textinputlayout_signin_password"
             />
 
-        <TextView
-            android:id="@+id/textview_signin_restore"
-            android:layout_width="0dp"
+        <ru.emba.cbs.uikit.textwithbutton.CbsTextWithButton
+            android:id="@+id/cbstextwithbutton_signin_restore_password"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:gravity="center"
-            android:text="@string/signin_restore_password"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="@dimen/spacing_32"
+            app:buttonText="@string/signin_restore"
+            app:labelText="@string/signin_forget_password"
             app:layout_constraintEnd_toEndOf="@id/guide_signin_end"
             app:layout_constraintStart_toStartOf="@id/guide_signin_start"
             app:layout_constraintTop_toBottomOf="@id/button_signin"

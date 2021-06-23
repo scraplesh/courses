@@ -6,6 +6,7 @@ plugins {
 }
 
 dependencies {
+    implementation(project(":core:uikit"))
     implementation(project(":domain"))
     implementation(Deps.Android.constraintLayout)
     implementation(Deps.Android.fragmentKtx)

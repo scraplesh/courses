@@ -6,4 +6,7 @@
     <string name="signin_password">Пароль</string>
     <string name="signin_e_mail">E-mail</string>
     <string name="signin_retry">Повторить</string>
+    <string name="signin_sign_in">Войти</string>
+    <string name="signin_restore">Восстановить</string>
+    <string name="signin_forget_password">Забыли пароль?</string>
 </resources>

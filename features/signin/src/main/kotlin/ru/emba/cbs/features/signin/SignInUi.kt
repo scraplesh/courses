@@ -12,6 +12,8 @@ import kotlinx.coroutines.flow.map
 import ru.emba.cbs.common.didSet
 import ru.emba.cbs.features.signin.databinding.FragmentSigninBinding
 import ru.emba.cbs.mvi.Ui
+import ru.emba.cbs.uikit.toolbar.CbsToolbar
+import ru.emba.cbs.uikit.toolbar.leftButtonClicks
 import ru.ldralighieri.corbind.view.clicks
 import ru.ldralighieri.corbind.widget.textChanges
 import javax.inject.Inject
@@ -35,8 +37,8 @@ class SignInUi @Inject constructor() :
 
     private lateinit var rootView: View
     private var snackBar: Snackbar? = null
-    private var backButton: View by didSet {
-        clicks().react { Reaction.BackClicked }
+    private var toolbar: CbsToolbar by didSet {
+        leftButtonClicks().react { Reaction.BackClicked }
     }
     private var emailField: EditText by didSet {
         states.filterIsInstance<UiState.Content>()
@@ -60,7 +62,7 @@ class SignInUi @Inject constructor() :
             .filter { it != (state as? UiState.Content)?.password }
             .react { Reaction.PasswordChanged(it.toString()) }
     }
-    private var loginButton: View by didSet {
+    private var singnInButton: View by didSet {
         clicks().react { Reaction.SignInClicked }
     }
     private var restoreButton: View by didSet {
@@ -75,11 +77,11 @@ class SignInUi @Inject constructor() :
     override fun bindViews(view: FragmentSigninBinding) {
         with(view) {
             rootView = root
-            backButton = buttonSigninBack
-            emailField = edittextSigninEmail
-            passwordField = edittextSigninPassword
-            loginButton = buttonSignin
-            restoreButton = textviewSigninRestore
+            toolbar = cbstoolbarSignin
+            emailField = textinpitedittextSigninEmail
+            passwordField = textinpitedittextSigninPassword
+            singnInButton = buttonSignin
+            restoreButton = cbstextwithbuttonSigninRestorePassword
             loadingView = progressbarSignin
 
             configureSnackbar()

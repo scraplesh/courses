@@ -10,19 +10,16 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.core.view.isVisible
 import com.google.android.material.textfield.TextInputLayout
-import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterIsInstance
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.isActive
 import ru.emba.cbs.common.didSet
 import ru.emba.cbs.features.signup.databinding.FragmentSignupBinding
 import ru.emba.cbs.mvi.Ui
 import ru.emba.cbs.uikit.toolbar.CbsToolbar
+import ru.emba.cbs.uikit.toolbar.leftButtonClicks
 import ru.ldralighieri.corbind.view.clicks
 import ru.ldralighieri.corbind.view.focusChanges
 import ru.ldralighieri.corbind.widget.textChanges
@@ -47,7 +44,7 @@ class SignUpUi @Inject constructor() :
     }
 
     private var toolbar: CbsToolbar by didSet {
-        clicks().react { Reaction.BackClicked }
+        leftButtonClicks().react { Reaction.BackClicked }
     }
     private var emailField: EditText by didSet {
         states.filterIsInstance<UiState.Content>()
@@ -142,10 +139,5 @@ class SignUpUi @Inject constructor() :
             privacyPolicyTextView = textviewSignupPrivacyPolicy
             loadingView = progressbarSignup
         }
-    }
-
-    private fun CbsToolbar.clicks(): Flow<Unit> = channelFlow {
-        setOnClickListener { if (isActive) trySend(Unit) }
-        awaitClose { setOnClickListener(null) }
     }
 }
